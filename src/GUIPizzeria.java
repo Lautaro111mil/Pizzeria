@@ -48,6 +48,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabelCosto = new javax.swing.JLabel();
         jLabelErrorNombre = new javax.swing.JLabel();
+        jLabelErrorDemora = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -115,6 +116,8 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
         jLabelErrorNombre.setText("jLabel7");
 
+        jLabelErrorDemora.setText("jLabel7");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,20 +132,19 @@ public class GUIPizzeria extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldNombre)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldHora, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldDemora, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel6)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jTextFieldHora, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextFieldDemora, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelErrorDemora)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,7 +187,8 @@ public class GUIPizzeria extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3)
                                     .addComponent(jTextFieldDemora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6)))
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabelErrorDemora)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
                                 .addComponent(jLabelErrorNombre)))
@@ -249,13 +252,23 @@ public class GUIPizzeria extends javax.swing.JFrame {
         
         String demoraIngresada=jTextFieldDemora.getText();
         demoraIngresada = demoraIngresada.trim();
-        if(!jTextFieldDemora.getText().contains("0")&&!jTextFieldDemora.getText().contains("1")&&!jTextFieldDemora.getText().contains("2")&&!jTextFieldDemora.getText().contains("3")&&!jTextFieldDemora.getText().contains("4")&&!jTextFieldDemora.getText().contains("5")&&!jTextFieldDemora.getText().contains("6")&&!jTextFieldDemora.getText().contains("7")&&!jTextFieldDemora.getText().contains("8")&&!jTextFieldDemora.getText().contains("9")){
-            
-        }
+        
         ventana.jLabelDemora.setText(jTextFieldDemora.getText());
         ventana.jLabelCosto.setText(costo);
         
+        
+        try {
+        long demoraEnNumero = Long.valueOf(demoraIngresada); 
+        
         ventana.setVisible(true);
+        
+        } catch (Exception e) {
+          jLabelErrorDemora.setText("Tiene que ingresar demora valida");  
+        }
+        
+        
+  
+        
         }
         
         
@@ -327,6 +340,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelCosto;
+    private javax.swing.JLabel jLabelErrorDemora;
     private javax.swing.JLabel jLabelErrorNombre;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldDemora;
