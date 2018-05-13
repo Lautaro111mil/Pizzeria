@@ -34,6 +34,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         jLabelDemora = new javax.swing.JLabel();
         jLabelCosto = new javax.swing.JLabel();
         jLabelMinutos = new javax.swing.JLabel();
+        jButtonCerrar = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -50,6 +51,13 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         jLabelCosto.setText("jLabel5");
 
         jLabelMinutos.setText("jLabel6");
+
+        jButtonCerrar.setText("Cerrar");
+        jButtonCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCerrarClik(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,6 +83,10 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                         .addGap(129, 129, 129)
                         .addComponent(jLabelCosto)))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonCerrar)
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,11 +101,17 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                 .addComponent(jLabelDemora)
                 .addGap(30, 30, 30)
                 .addComponent(jLabelCosto)
-                .addGap(43, 43, 43))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonCerrar)
+                .addGap(9, 9, 9))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCerrarClik(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarClik
+        dispose();
+    }//GEN-LAST:event_jButtonCerrarClik
 
     /**
      * @param args the command line arguments
@@ -131,6 +149,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCerrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabelCosto;
