@@ -20,6 +20,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
     public GUIPizzeria() {
         initComponents();
 	configurarHora();
+        setTitle("Agregar Pedido");
     }
 
     /**
