@@ -352,8 +352,8 @@ public class GUIPizzeria extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 
-    private void configurarHora() {
-        
+
+private void configurarHora() {        
         Calendar cal = Calendar.getInstance();
         
         String hora = String.valueOf(cal.get(cal.HOUR_OF_DAY));
@@ -362,4 +362,5 @@ public class GUIPizzeria extends javax.swing.JFrame {
         String minutos = String.valueOf(cal.get(cal.MINUTE));
         jTextFieldMinuto.setText(minutos);
     }
+
 }
