@@ -1,5 +1,7 @@
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import pizzería.ventanaDatosDePedido;
 
 /*
@@ -19,6 +21,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
      */
     public GUIPizzeria() {
         initComponents();
+        configurarHora();
     }
 
     /**
@@ -245,7 +248,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
             jLabelErrorNombre.setText("Necesita ingresar un nombre");
         } else {
             
-        ventana.jLabelVentana.setText(jTextFieldNombre.getText());   
+        ventana.jLabelVentana.setText(jTextFieldNombre.getText());  
         
         ventana.jLabelHora.setText(jTextFieldHora.getText());
         ventana.jLabelMinutos.setText(jTextFieldMinuto.getText());
@@ -348,4 +351,15 @@ public class GUIPizzeria extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldMinuto;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
+
+    private void configurarHora() {
+        
+        Calendar cal = Calendar.getInstance();
+        
+        String hora = String.valueOf(cal.get(cal.HOUR_OF_DAY));
+        jTextFieldHora.setText(hora);
+        
+        String minutos = String.valueOf(cal.get(cal.MINUTE));
+        jTextFieldMinuto.setText(minutos);
+    }
 }
