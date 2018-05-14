@@ -19,7 +19,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
      */
     public GUIPizzeria() {
         initComponents();
-	configurarHora();
+        configurarHora();
         setTitle("Agregar Pedido");
     }
 
@@ -199,11 +199,12 @@ public class GUIPizzeria extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)))
                 .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldDemora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabelErrorDemora, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelErrorDemora, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jTextFieldDemora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)))
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,7 +240,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
         if (jComboBoxTamaño.getSelectedItem().equals("Gigante")) {
             pizza.setTamaño(12);
         }
-
+        
         if (jComboBoxTipo.getSelectedItem().equals("Piedra")) {
             pizza.setTipo(Tipo.PIEDRA);
         }
@@ -249,7 +250,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
         if (jComboBoxTipo.getSelectedItem().equals("Molde")) {
             pizza.setTipo(Tipo.MOLDE);
         }
-
+        
         if (jComboBoxVAriedad.getSelectedItem().equals("Muzzarella")) {
             pizza.setVariedad(muzzarella);
         }
@@ -266,43 +267,43 @@ public class GUIPizzeria extends javax.swing.JFrame {
         try {
             
             long cantidad = Long.valueOf(jTextFieldCantidad.getText());
-
-        if (cantidad <= 0 || jTextFieldCantidad.getText().isEmpty()) {
-            jLabelErrorCantidad.setText("La cantidad tiene que ser igual mayor a 1");
-        }
-        
-        ItemPedido pedido = new ItemPedido(pizza, cantidad);
-
-        String nombreIngresado = jTextFieldNombre.getText();
-        nombreIngresado = nombreIngresado.trim();
-        if (nombreIngresado.isEmpty()) {
-            jLabelErrorNombre.setText("Necesita ingresar un nombre");
-        } else {
-
-            ventana.jLabelVentana.setText(jTextFieldNombre.getText());
-
-            ventana.jLabelHora.setText(jTextFieldHora.getText());
-            ventana.jLabelMinutos.setText(jTextFieldMinuto.getText());
-
-            String demoraIngresada = jTextFieldDemora.getText();
-            demoraIngresada = demoraIngresada.trim();
-            String cantidadIngresada = jTextFieldCantidad.getText().trim();
-            ventana.jLabelDemora.setText(jTextFieldDemora.getText());
-
-            try {
-                long demoraEnNumero = Long.valueOf(demoraIngresada);
-                long cantidadNumero = Long.valueOf(cantidadIngresada);
-                ventana.setVisible(true);
-
-            } catch (Exception e) {
-                jLabelErrorDemora.setText("Tiene que ingresar demora valida");
+            
+            if (cantidad <= 0 || jTextFieldCantidad.getText().isEmpty()) {
+                jLabelErrorCantidad.setText("La cantidad tiene que ser igual mayor a 1");
             }
-            //long cantidadNumero= Long.valueOf(cantidadIngresada);
-            double CostoEnNumero = pedido.calcularCosto();
-            String costo = (String) String.valueOf(CostoEnNumero);
-            ventana.jLabelCosto.setText(costo);
-
-        }
+            
+            ItemPedido pedido = new ItemPedido(pizza, cantidad);
+            
+            String nombreIngresado = jTextFieldNombre.getText();
+            nombreIngresado = nombreIngresado.trim();
+            if (nombreIngresado.isEmpty()) {
+                jLabelErrorNombre.setText("Necesita ingresar un nombre");
+            } else {
+                
+                ventana.jLabelVentana.setText(jTextFieldNombre.getText());
+                
+                ventana.jLabelHora.setText(jTextFieldHora.getText());
+                ventana.jLabelMinutos.setText(jTextFieldMinuto.getText());
+                
+                String demoraIngresada = jTextFieldDemora.getText();
+                demoraIngresada = demoraIngresada.trim();
+                String cantidadIngresada = jTextFieldCantidad.getText().trim();
+                ventana.jLabelDemora.setText(jTextFieldDemora.getText());
+                
+                try {
+                    long demoraEnNumero = Long.valueOf(demoraIngresada);
+                    long cantidadNumero = Long.valueOf(cantidadIngresada);
+                    ventana.setVisible(true);
+                    
+                } catch (Exception e) {
+                    jLabelErrorDemora.setText("Tiene que ingresar demora valida");
+                }
+                //long cantidadNumero= Long.valueOf(cantidadIngresada);
+                double CostoEnNumero = pedido.calcularCosto();
+                String costo = (String) String.valueOf(CostoEnNumero);
+                ventana.jLabelCosto.setText(costo);
+                
+            }
             
         } catch (Exception e) {
             jLabelErrorCantidad.setText("Agrege un numero valido");
@@ -356,7 +357,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
             }
         });
     }
-
+    
     Variedad muzzarella = new Variedad("Muzzarella", 50);
     Variedad jamonYMorrones = new Variedad("Jamon y morrones", 60);
     Variedad fugazzeta = new Variedad("Fugazzeta", 40);
@@ -387,17 +388,20 @@ public class GUIPizzeria extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 
-private void configurarHora() {        
+    private void configurarHora() {        
         Calendar cal = Calendar.getInstance();
         
         String hora = String.valueOf(cal.get(cal.HOUR_OF_DAY));
-        jTextFieldHora.setText(hora+ " :");
-        
+        jTextFieldHora.setText(hora + " :");
         
         String minutos = String.valueOf(cal.get(cal.MINUTE));
         jTextFieldMinuto.setText(minutos);
+        Long minutosEnNumero = Long.valueOf(minutos);
+        if (minutosEnNumero == 0 || minutosEnNumero < 10) {
+            jTextFieldMinuto.setText("0" + minutos);
+            
+        }
         
     }
-
-
+    
 }

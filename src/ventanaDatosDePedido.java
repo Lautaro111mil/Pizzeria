@@ -35,6 +35,12 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         jLabelCosto = new javax.swing.JLabel();
         jLabelMinutos = new javax.swing.JLabel();
         jButtonCerrar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -42,16 +48,32 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelVentana.setText("ujhuihiuhiuhiuhjuuihiuhiuhuihiuhiuhiuhiuhiuhiuhiuhiuhiuhiuhuihiuhiuhiuhiuh");
+        jLabelVentana.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabelVentana.setForeground(new java.awt.Color(0, 51, 153));
+        jLabelVentana.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelVentana.setText("Nombre del cliente");
 
-        jLabelHora.setText("jLabel3");
+        jLabelHora.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabelHora.setForeground(new java.awt.Color(0, 153, 204));
+        jLabelHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelHora.setText("Hora");
 
-        jLabelDemora.setText("jLabel4");
+        jLabelDemora.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabelDemora.setForeground(new java.awt.Color(0, 153, 204));
+        jLabelDemora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelDemora.setText("Demora");
 
-        jLabelCosto.setText("jLabel5");
+        jLabelCosto.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabelCosto.setForeground(new java.awt.Color(204, 0, 0));
+        jLabelCosto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCosto.setText("Costo");
 
-        jLabelMinutos.setText("jLabel6");
+        jLabelMinutos.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabelMinutos.setForeground(new java.awt.Color(0, 153, 204));
+        jLabelMinutos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMinutos.setText("Minutos");
 
+        jButtonCerrar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButtonCerrar.setText("Cerrar");
         jButtonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,51 +81,95 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setText("Nombre del cliente");
+
+        jLabel4.setText("Hora del pedido");
+
+        jLabel5.setText("Demora estimada");
+
+        jLabel6.setText("Total a pagar");
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("minutos");
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("$");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelHora, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabelMinutos)
-                        .addContainerGap(134, Short.MAX_VALUE))
+                        .addGap(136, 136, 136)
+                        .addComponent(jButtonCerrar))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(109, 109, 109))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(96, 96, 96)
+                        .addComponent(jLabelVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(jLabelDemora))
+                        .addGap(149, 149, 149)
+                        .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jLabelCosto)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonCerrar)
-                .addGap(59, 59, 59))
+                        .addGap(156, 156, 156)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabelDemora)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel7))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(137, 137, 137)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jLabel5))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabelHora, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabelMinutos)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabelCosto))))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(69, 69, 69)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelHora)
                     .addComponent(jLabelMinutos))
-                .addGap(31, 31, 31)
-                .addComponent(jLabelDemora)
-                .addGap(30, 30, 30)
-                .addComponent(jLabelCosto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addGap(3, 3, 3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDemora)
+                    .addComponent(jLabel7))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCosto)
+                    .addComponent(jLabel8))
+                .addGap(37, 37, 37)
                 .addComponent(jButtonCerrar)
-                .addGap(9, 9, 9))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -152,6 +218,12 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCerrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabelCosto;
     public javax.swing.JLabel jLabelDemora;
     public javax.swing.JLabel jLabelHora;
