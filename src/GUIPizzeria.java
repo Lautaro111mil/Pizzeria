@@ -298,10 +298,16 @@ public class GUIPizzeria extends javax.swing.JFrame {
                 } catch (Exception e) {
                     jLabelErrorDemora.setText("Tiene que ingresar demora valida");
                 }
-                //long cantidadNumero= Long.valueOf(cantidadIngresada);
                 double CostoEnNumero = pedido.calcularCosto();
                 String costo = (String) String.valueOf(CostoEnNumero);
                 ventana.jLabelCosto.setText(costo);
+                String tamaño=(String) jComboBoxTamaño.getSelectedItem();
+                ventana.jLabelTamaño1.setText(tamaño);
+                String tipo=(String) jComboBoxTipo.getSelectedItem();
+                ventana.jLabelTipo1.setText(tipo);
+                String variedad= (String) jComboBoxVAriedad.getSelectedItem();
+                ventana.jLabelVariedad1.setText(variedad);
+                ventana.jLabelCantidad1.setText(cantidadIngresada);
                 
             }
             
