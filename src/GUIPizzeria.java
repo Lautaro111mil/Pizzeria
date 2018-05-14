@@ -1,7 +1,6 @@
-import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import pizzería.ventanaDatosDePedido;
 
 /*
@@ -9,7 +8,6 @@ import pizzería.ventanaDatosDePedido;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author User
@@ -21,7 +19,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
      */
     public GUIPizzeria() {
         initComponents();
-        configurarHora();
+	configurarHora();
     }
 
     /**
@@ -49,9 +47,11 @@ public class GUIPizzeria extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextFieldDemora = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabelCosto = new javax.swing.JLabel();
         jLabelErrorNombre = new javax.swing.JLabel();
         jLabelErrorDemora = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabelErrorCantidad = new javax.swing.JLabel();
+        jTextFieldCantidad = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -117,16 +117,15 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
         jLabel6.setText("(en minutos)");
 
-        jLabelErrorNombre.setText("jLabel7");
+        jLabel7.setText("Cantidad de pizzas");
 
-        jLabelErrorDemora.setText("jLabel7");
+        jLabelErrorCantidad.setText("  ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
@@ -146,63 +145,76 @@ public class GUIPizzeria extends javax.swing.JFrame {
                         .addComponent(jTextFieldDemora, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelErrorDemora)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelErrorNombre)
-                .addGap(68, 68, 68))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jComboBoxTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jButtonOK))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelErrorDemora, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabelErrorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(144, 144, 144))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jComboBoxTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jTextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel7)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelErrorCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBoxVAriedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBoxVAriedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, 0)
+                        .addComponent(jButtonOK)))
                 .addGap(142, 142, 142))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelCosto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jTextFieldHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jTextFieldMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
-                                .addGap(23, 23, 23)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jTextFieldDemora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabelErrorDemora)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabelErrorNombre)))
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxVAriedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                        .addComponent(jButtonOK)))
-                .addGap(26, 26, 26))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelErrorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextFieldHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextFieldMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextFieldDemora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabelErrorDemora, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxVAriedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabelErrorCantidad))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonOK)
+                    .addComponent(jTextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -213,68 +225,86 @@ public class GUIPizzeria extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTamañoActionPerformed
 
     private void jButtonOKClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKClick
-        ventanaDatosDePedido ventana=new ventanaDatosDePedido();
-        Pizza pizza=new Pizza();
-        if (jComboBoxTamaño.getSelectedItem().equals("Grande")){
+        ventanaDatosDePedido ventana = new ventanaDatosDePedido();
+        Pizza pizza = new Pizza();
+        if (jComboBoxTamaño.getSelectedItem().equals("Grande")) {
             pizza.setTamaño(8);
-        } if (jComboBoxTamaño.getSelectedItem().equals("Extra grande")){
+        }
+        if (jComboBoxTamaño.getSelectedItem().equals("Extra grande")) {
             pizza.setTamaño(10);
-        } if (jComboBoxTamaño.getSelectedItem().equals("Gigante")){
+        }
+        if (jComboBoxTamaño.getSelectedItem().equals("Gigante")) {
             pizza.setTamaño(12);
         }
-        
-        if (jComboBoxTipo.getSelectedItem().equals("Piedra")){
+
+        if (jComboBoxTipo.getSelectedItem().equals("Piedra")) {
             pizza.setTipo(Tipo.PIEDRA);
-        }if (jComboBoxTipo.getSelectedItem().equals("Parrilla")){
+        }
+        if (jComboBoxTipo.getSelectedItem().equals("Parrilla")) {
             pizza.setTipo(Tipo.PARRILLA);
-        }if (jComboBoxTipo.getSelectedItem().equals("Molde")){
+        }
+        if (jComboBoxTipo.getSelectedItem().equals("Molde")) {
             pizza.setTipo(Tipo.MOLDE);
         }
-        
-        if(jComboBoxVAriedad.getSelectedItem().equals("Muzzarella")){
+
+        if (jComboBoxVAriedad.getSelectedItem().equals("Muzzarella")) {
             pizza.setVariedad(muzzarella);
-        }if(jComboBoxVAriedad.getSelectedItem().equals("Jamon y morrones")){
+        }
+        if (jComboBoxVAriedad.getSelectedItem().equals("Jamon y morrones")) {
             pizza.setVariedad(jamonYMorrones);
-        }if(jComboBoxVAriedad.getSelectedItem().equals("Fugazzeta")){
+        }
+        if (jComboBoxVAriedad.getSelectedItem().equals("Fugazzeta")) {
             pizza.setVariedad(fugazzeta);
-        }if(jComboBoxVAriedad.getSelectedItem().equals("Cuatro quesos")){
+        }
+        if (jComboBoxVAriedad.getSelectedItem().equals("Cuatro quesos")) {
             pizza.setVariedad(cuatroQuesos);
         }
-        String costo=(String) String.valueOf(pizza.calcularCosto()) ;
-        
-        String nombreIngresado = jTextFieldNombre.getText();
-        nombreIngresado = nombreIngresado.trim();
-        if (nombreIngresado.isEmpty()){
-            jLabelErrorNombre.setText("Necesita ingresar un nombre");
-        } else {
-            
-        ventana.jLabelVentana.setText(jTextFieldNombre.getText());  
-        
-        ventana.jLabelHora.setText(jTextFieldHora.getText());
-        ventana.jLabelMinutos.setText(jTextFieldMinuto.getText());
-        
-        String demoraIngresada=jTextFieldDemora.getText();
-        demoraIngresada = demoraIngresada.trim();
-        
-        ventana.jLabelDemora.setText(jTextFieldDemora.getText());
-        ventana.jLabelCosto.setText(costo);
-        
         
         try {
-        long demoraEnNumero = Long.valueOf(demoraIngresada); 
+            
+            long cantidad = Long.valueOf(jTextFieldCantidad.getText());
+
+        if (cantidad <= 0 || jTextFieldCantidad.getText().isEmpty()) {
+            jLabelErrorCantidad.setText("La cantidad tiene que ser igual mayor a 1");
+        }
         
-        ventana.setVisible(true);
-        
+        ItemPedido pedido = new ItemPedido(pizza, cantidad);
+
+        String nombreIngresado = jTextFieldNombre.getText();
+        nombreIngresado = nombreIngresado.trim();
+        if (nombreIngresado.isEmpty()) {
+            jLabelErrorNombre.setText("Necesita ingresar un nombre");
+        } else {
+
+            ventana.jLabelVentana.setText(jTextFieldNombre.getText());
+
+            ventana.jLabelHora.setText(jTextFieldHora.getText());
+            ventana.jLabelMinutos.setText(jTextFieldMinuto.getText());
+
+            String demoraIngresada = jTextFieldDemora.getText();
+            demoraIngresada = demoraIngresada.trim();
+            String cantidadIngresada = jTextFieldCantidad.getText().trim();
+            ventana.jLabelDemora.setText(jTextFieldDemora.getText());
+
+            try {
+                long demoraEnNumero = Long.valueOf(demoraIngresada);
+                long cantidadNumero = Long.valueOf(cantidadIngresada);
+                ventana.setVisible(true);
+
+            } catch (Exception e) {
+                jLabelErrorDemora.setText("Tiene que ingresar demora valida");
+            }
+            //long cantidadNumero= Long.valueOf(cantidadIngresada);
+            double CostoEnNumero = pedido.calcularCosto();
+            String costo = (String) String.valueOf(CostoEnNumero);
+            ventana.jLabelCosto.setText(costo);
+
+        }
+            
         } catch (Exception e) {
-          jLabelErrorDemora.setText("Tiene que ingresar demora valida");  
+            jLabelErrorCantidad.setText("Agrege un numero valido");
         }
-        
-        
-  
-        
-        }
-        
-        
+
     }//GEN-LAST:event_jButtonOKClick
 
     private void jTextFieldMinutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMinutoActionPerformed
@@ -323,13 +353,13 @@ public class GUIPizzeria extends javax.swing.JFrame {
             }
         });
     }
-    
-    Variedad muzzarella=new Variedad("Muzzarella", 50);
-    Variedad jamonYMorrones=new Variedad("Jamon y morrones", 60);
-    Variedad fugazzeta=new Variedad("Fugazzeta", 40);
-    Variedad cuatroQuesos=new Variedad("Cuatro quesos", 70);
-    
-    
+
+    Variedad muzzarella = new Variedad("Muzzarella", 50);
+    Variedad jamonYMorrones = new Variedad("Jamon y morrones", 60);
+    Variedad fugazzeta = new Variedad("Fugazzeta", 40);
+    Variedad cuatroQuesos = new Variedad("Cuatro quesos", 70);
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonOK;
     private javax.swing.JComboBox<String> jComboBoxTamaño;
@@ -342,16 +372,17 @@ public class GUIPizzeria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabelCosto;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelErrorCantidad;
     private javax.swing.JLabel jLabelErrorDemora;
     private javax.swing.JLabel jLabelErrorNombre;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldCantidad;
     private javax.swing.JTextField jTextFieldDemora;
     private javax.swing.JTextField jTextFieldHora;
     private javax.swing.JTextField jTextFieldMinuto;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
-
 
 private void configurarHora() {        
         Calendar cal = Calendar.getInstance();
@@ -362,5 +393,6 @@ private void configurarHora() {
         String minutos = String.valueOf(cal.get(cal.MINUTE));
         jTextFieldMinuto.setText(minutos);
     }
+
 
 }
