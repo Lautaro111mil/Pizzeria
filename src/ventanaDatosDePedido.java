@@ -63,7 +63,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
 
         jLabelHora.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabelHora.setForeground(new java.awt.Color(0, 153, 204));
-        jLabelHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelHora.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelHora.setText("Hora");
 
         jLabelDemora.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -78,7 +78,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
 
         jLabelMinutos.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabelMinutos.setForeground(new java.awt.Color(0, 153, 204));
-        jLabelMinutos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMinutos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabelMinutos.setText("Minutos");
 
         jButtonCerrar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -127,14 +127,6 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelCosto)
-                    .addComponent(jLabel6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -167,19 +159,14 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                                 .addComponent(jButtonCerrar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel5))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelHora, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabelMinutos))))
+                                .addComponent(jLabelHora, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jLabelMinutos))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(57, 57, 57)
                                 .addComponent(jLabel4))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
+                                .addGap(31, 31, 31)
                                 .addComponent(jLabelDemora)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel7)))
@@ -188,6 +175,19 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(jLabelVariedad1))
                 .addGap(57, 57, 57))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCosto)
+                            .addComponent(jLabel6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,9 +215,9 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelHora)
                     .addComponent(jLabelMinutos))
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDemora)
                     .addComponent(jLabel7))

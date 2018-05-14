@@ -398,7 +398,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
         Calendar cal = Calendar.getInstance();
         
         String hora = String.valueOf(cal.get(cal.HOUR_OF_DAY));
-        jTextFieldHora.setText(hora + " :");
+        jTextFieldHora.setText(hora + ":");
         
         String minutos = String.valueOf(cal.get(cal.MINUTE));
         jTextFieldMinuto.setText(minutos);
