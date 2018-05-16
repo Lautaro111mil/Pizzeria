@@ -143,7 +143,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
                         .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBoxVAriedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 62, Short.MAX_VALUE))
+                        .addGap(0, 120, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jTextFieldNombre, javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,11 +161,10 @@ public class GUIPizzeria extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(jLabel6))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelErrorNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelErrorDemora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabelErrorNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelErrorDemora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabelErrorHoraMinuto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap())))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -272,14 +271,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
         if (jComboBoxVAriedad.getSelectedItem().equals("Napolitana")) {
             pizza.setVariedad(napolitana);
         } 
-        
-        try {
-            long horaNumero= Long.valueOf(jTextFieldHora.getText());
-            long minutoNumero = Long.valueOf(jTextFieldMinuto.getText());
-        }catch (Exception e){
-            jLabelErrorHoraMinuto.setText("ingrese hora o minuto valido");
-        }
-            
+                           
         try {
             
             long cantidad = Long.valueOf(jTextFieldCantidad.getText());
@@ -310,12 +302,17 @@ public class GUIPizzeria extends javax.swing.JFrame {
                 try {
                     long demoraEnNumero = Long.valueOf(demoraIngresada);
                     long cantidadNumero = Long.valueOf(cantidadIngresada);
+                    
+                } catch (Exception e) {
+                    jLabelErrorDemora.setText("Tiene que ingresar demora valida");
+                }
+                try {
                     long horaNumero= Long.valueOf(jTextFieldHora.getText());
                     long minutoNumero = Long.valueOf(jTextFieldMinuto.getText());
                     ventana.setVisible(true);
                     
                 } catch (Exception e) {
-                    jLabelErrorDemora.setText("Tiene que ingresar demora valida");
+                    jLabelErrorHoraMinuto.setText("Tiene que ingresar hora o minutos válidos");
                 }
                 double CostoEnNumero = pedido.calcularCosto();
                 String costo = (String) String.valueOf(CostoEnNumero);
