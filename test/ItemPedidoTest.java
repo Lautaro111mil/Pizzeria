@@ -81,4 +81,25 @@ public class ItemPedidoTest {
         assertEquals(760, costo, 0.001);
     }
 
+    @Test
+    public void deberiaPoderHacerseUnaObservacion() {
+        Pizza pizza1 = new Pizza();
+        pizza1.setTamaño(8);
+        pizza1.setTipo(Tipo.PIEDRA);
+        Variedad variedad = new Variedad("Jamon y morrones", 60);
+        pizza1.setVariedad(variedad);
+        ItemPedido item = new ItemPedido(pizza1, 2);
+        item.setObservacion("Sin morrones");
+    }
+
+    @Test
+    public void deberiaPoderNoHacerseUnaObservacion() {
+        Pizza pizza1 = new Pizza();
+        pizza1.setTamaño(8);
+        pizza1.setTipo(Tipo.PIEDRA);
+        Variedad variedad = new Variedad("Jamon y morrones", 60);
+        pizza1.setVariedad(variedad);
+        ItemPedido item = new ItemPedido(pizza1, 2);
+    }
+    
 }

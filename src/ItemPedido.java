@@ -12,6 +12,7 @@ public class ItemPedido {
 
     private Pizza pizza;
     private long cantidad;
+    private String observacion;
 
     public ItemPedido(Pizza pizza, long cantidad) {
           if (cantidad <= 0) {
@@ -19,6 +20,7 @@ public class ItemPedido {
        }
         this.pizza = pizza;
         this.cantidad = cantidad;
+        this.observacion=observacion;
     }
 
     public Pizza getPizza() {
@@ -37,6 +39,15 @@ public class ItemPedido {
         this.cantidad = cantidad;
     }
 
+    public String getObservacion() {
+        return observacion;
+    }
+
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
+    }
+
+    
     
     public double calcularCosto() {
         return pizza.calcularCosto() * cantidad;

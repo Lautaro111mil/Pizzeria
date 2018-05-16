@@ -27,7 +27,7 @@ public class Pedido {
             throw new Exception("Ingrese un día válido");
         }
         this.diaCreacion = diaCreacion;
-        if (mesCreacion < 10 || diaCreacion > 12) {
+        if (mesCreacion < 1 || mesCreacion > 12) {
             throw new Exception("Ingrese un mes válido");
         }
         this.mesCreacion = mesCreacion;
