@@ -1,11 +1,16 @@
 
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author User
@@ -61,6 +66,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
 
         jLabelVentana.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -138,7 +144,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         jButtonImprimir.setText("Imprimir");
         jButtonImprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonImprimirActionPerformed(evt);
+                jButtonImprimirClik(evt);
             }
         });
 
@@ -285,9 +291,26 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonCerrarClik
 
-    private void jButtonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonImprimirActionPerformed
+    private void jButtonImprimirClik(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimirClik
+
+        PrinterJob pjob = PrinterJob.getPrinterJob();
+        PageFormat preformat = pjob.defaultPage();
+        preformat.setOrientation(PageFormat.LANDSCAPE);
+        PageFormat postformat = pjob.pageDialog(preformat);
+
+        if (preformat != postformat) {
+
+            pjob.setPrintable(new Printer(this), postformat);
+            if (pjob.printDialog()) {
+                try {
+                    pjob.print();
+                } catch (PrinterException ex) {
+                    System.out.println("Se re pudrio");
+                }
+            }
+        }
+        dispose();
+    }//GEN-LAST:event_jButtonImprimirClik
 
     /**
      * @param args the command line arguments
@@ -326,7 +349,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCerrar;
-    private javax.swing.JButton jButtonImprimir;
+    public javax.swing.JButton jButtonImprimir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

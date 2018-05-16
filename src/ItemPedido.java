@@ -20,7 +20,7 @@ public class ItemPedido {
        }
         this.pizza = pizza;
         this.cantidad = cantidad;
-        this.observacion=observacion;
+        this.observacion= observacion;
     }
 
     public Pizza getPizza() {
