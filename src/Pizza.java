@@ -30,7 +30,7 @@ public class Pizza {
     }
 
     public void setVariedad(Variedad variedad) {
-        if (!variedad.getNombre().equals("Muzzarella") && !variedad.getNombre().equals("Jamon y morrones") && !variedad.getNombre().equals("Fugazzeta") && !variedad.getNombre().equals("Cuatro quesos")) {
+        if (!variedad.getNombre().equals("Muzzarella") && !variedad.getNombre().equals("Jamon y morrones") && !variedad.getNombre().equals("Fugazzeta") && !variedad.getNombre().equals("Cuatro quesos") && !variedad.getNombre().equals("Napolitana")) {
             throw new Error("Ingrese una variedad válida");
         }
         this.variedad = variedad;
@@ -82,6 +82,10 @@ public class Pizza {
         if (variedad.getNombre().equals("Cuatro quesos")) {
             precioVariedad = 70;
         }
+        if (variedad.getNombre().equals("Napolitana")) {
+            precioVariedad = 70;
+        }
+            
         return precioTamaño + precioTipo + precioVariedad;
 
     }

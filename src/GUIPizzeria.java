@@ -84,7 +84,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
         jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piedra", "Parrilla", "Molde" }));
 
-        jComboBoxVAriedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Muzzarella", "Jamon y morrones", "Fugazzeta", "Cuatro quesos" }));
+        jComboBoxVAriedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Muzzarella", "Jamon y morrones", "Fugazzeta", "Cuatro quesos", "Napolitana" }));
 
         jButtonOK.setText("OK");
         jButtonOK.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +263,8 @@ public class GUIPizzeria extends javax.swing.JFrame {
         if (jComboBoxVAriedad.getSelectedItem().equals("Cuatro quesos")) {
             pizza.setVariedad(cuatroQuesos);
         }
-        
+        if (jComboBoxVAriedad.getSelectedItem().equals("Napolitana")) {
+            pizza.setVariedad(napolitana);
         try {
             
             long cantidad = Long.valueOf(jTextFieldCantidad.getText());
@@ -368,6 +369,8 @@ public class GUIPizzeria extends javax.swing.JFrame {
     Variedad jamonYMorrones = new Variedad("Jamon y morrones", 60);
     Variedad fugazzeta = new Variedad("Fugazzeta", 40);
     Variedad cuatroQuesos = new Variedad("Cuatro quesos", 70);
+    Variedad napolitana = new Variedad ("Napolitana", 70);
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -398,7 +401,10 @@ public class GUIPizzeria extends javax.swing.JFrame {
         Calendar cal = Calendar.getInstance();
         
         String hora = String.valueOf(cal.get(cal.HOUR_OF_DAY));
-        jTextFieldHora.setText(hora + ":");
+        jTextFieldHora.setText(hora);
+        long horaEnNumero = Long.valueOf(hora);
+         if (horaEnNumero == 0 || horaEnNumero < 10) {
+            jTextFieldHora.setText("0" + hora);
         
         String minutos = String.valueOf(cal.get(cal.MINUTE));
         jTextFieldMinuto.setText(minutos);
