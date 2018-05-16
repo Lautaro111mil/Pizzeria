@@ -1,9 +1,10 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pizzería;
 
 /**
  *
@@ -16,6 +17,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
      */
     public ventanaDatosDePedido() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -50,12 +52,16 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabelCantidad1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jButtonImprimir = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabelObservacion = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabelVentana.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelVentana.setForeground(new java.awt.Color(0, 51, 153));
@@ -128,6 +134,18 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(0, 153, 204));
         jLabel13.setText(":");
 
+        jButtonImprimir.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButtonImprimir.setText("Imprimir");
+        jButtonImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonImprimirActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Observacion");
+
+        jLabelObservacion.setText("jLabel15");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,7 +160,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(45, 45, 45)
                                 .addComponent(jLabelVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
                             .addComponent(jLabelCantidad1))
@@ -152,13 +170,13 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                             .addComponent(jLabel9))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(93, 93, 93)
+                                .addGap(96, 96, 96)
                                 .addComponent(jLabel10)
-                                .addGap(83, 83, 83))
+                                .addGap(70, 70, 70))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(96, 96, 96)
                                 .addComponent(jLabelTipo1)
-                                .addGap(73, 73, 73))))
+                                .addGap(70, 70, 70))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -183,7 +201,11 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel11)
                     .addComponent(jLabelVariedad1))
-                .addGap(57, 57, 57))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabelObservacion))
+                .addGap(25, 25, 25))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -195,20 +217,28 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelCosto))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(313, 313, 313)
-                        .addComponent(jButtonCerrar)))
+                        .addGap(238, 238, 238)
+                        .addComponent(jButtonCerrar)
+                        .addGap(122, 122, 122)
+                        .addComponent(jButtonImprimir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel14))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -216,7 +246,8 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                             .addComponent(jLabelTamaño1)
                             .addComponent(jLabelTipo1)
                             .addComponent(jLabelVariedad1)
-                            .addComponent(jLabelCantidad1))
+                            .addComponent(jLabelCantidad1)
+                            .addComponent(jLabelObservacion))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -241,7 +272,9 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                     .addComponent(jLabelCosto)
                     .addComponent(jLabel8))
                 .addGap(45, 45, 45)
-                .addComponent(jButtonCerrar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCerrar)
+                    .addComponent(jButtonImprimir))
                 .addContainerGap())
         );
 
@@ -251,6 +284,10 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
     private void jButtonCerrarClik(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarClik
         dispose();
     }//GEN-LAST:event_jButtonCerrarClik
+
+    private void jButtonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonImprimirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,11 +326,13 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCerrar;
+    private javax.swing.JButton jButtonImprimir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -307,6 +346,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
     public javax.swing.JLabel jLabelDemora;
     public javax.swing.JLabel jLabelHora;
     public javax.swing.JLabel jLabelMinutos;
+    public javax.swing.JLabel jLabelObservacion;
     public javax.swing.JLabel jLabelTamaño1;
     public javax.swing.JLabel jLabelTipo1;
     public javax.swing.JLabel jLabelVariedad1;
