@@ -362,6 +362,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
                 ventana.jLabelCantidad1.setText(cantidadIngresada);
                 ventana.jLabelObservacion.setText(jTextFieldObservacion.getText());
                 pedido.setObservacion(jTextFieldObservacion.getText());
+                dispose();
                 
             }
             
