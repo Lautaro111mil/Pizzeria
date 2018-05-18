@@ -7,21 +7,29 @@ import java.util.List;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author User
  */
 public class GUIListaPedidos extends javax.swing.JFrame {
-private List <Pedido> pedidos = new LinkedList<> ();
+
+    private List<Pedido> pedidos = new LinkedList<>();
+
     /**
      * Creates new form GUIListaPedidos
      */
     public GUIListaPedidos() {
         initComponents();
     }
-    public void agregarPedido (Pedido pedido){
+
+    public void agregarPedido(Pedido pedido) {
         pedidos.add(pedido);
+    }
+
+    public void datosDelPedido(Pedido pedido) {
+        String conversionNombre = (String) String.valueOf(pedido.getNombreCliente());
+        
+        
     }
 
     /**
@@ -34,6 +42,12 @@ private List <Pedido> pedidos = new LinkedList<> ();
     private void initComponents() {
 
         jButtonAgregarPedido = new javax.swing.JButton();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelDia = new javax.swing.JLabel();
+        jLabelMes = new javax.swing.JLabel();
+        jLabelAnio = new javax.swing.JLabel();
+        jLabelDemoraEstimada = new javax.swing.JLabel();
+        jLabelCosto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,19 +58,54 @@ private List <Pedido> pedidos = new LinkedList<> ();
             }
         });
 
+        jLabelNombre.setText("jLabel1");
+
+        jLabelDia.setText("jLabel2");
+
+        jLabelMes.setText("jLabel3");
+
+        jLabelAnio.setText("jLabel4");
+
+        jLabelDemoraEstimada.setText("jLabel5");
+
+        jLabelCosto.setText("jLabel6");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jButtonAgregarPedido)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jButtonAgregarPedido))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelDia)
+                            .addComponent(jLabelNombre)
+                            .addComponent(jLabelMes)
+                            .addComponent(jLabelAnio)
+                            .addComponent(jLabelDemoraEstimada)
+                            .addComponent(jLabelCosto))))
                 .addContainerGap(210, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(475, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
+                .addComponent(jLabelNombre)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelDia)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelMes)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelAnio)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelDemoraEstimada)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelCosto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
                 .addComponent(jButtonAgregarPedido)
                 .addContainerGap())
         );
@@ -65,12 +114,9 @@ private List <Pedido> pedidos = new LinkedList<> ();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAgregarPedidoActionclock(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarPedidoActionclock
-        GUIPizzeria agregarPedido =new GUIPizzeria();
-         Pedido pedido1 = new Pedido(nombreCliente, FRAMEBITS, SOMEBITS, NORMAL, PROPERTIES, itemPedido)
-        pedidos.add(pedido1);
-    
+        GUIPizzeria agregarPedido = new GUIPizzeria();
         agregarPedido.setVisible(true);
-        
+
     }//GEN-LAST:event_jButtonAgregarPedidoActionclock
 
     /**
@@ -110,5 +156,11 @@ private List <Pedido> pedidos = new LinkedList<> ();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregarPedido;
+    private javax.swing.JLabel jLabelAnio;
+    private javax.swing.JLabel jLabelCosto;
+    private javax.swing.JLabel jLabelDemoraEstimada;
+    private javax.swing.JLabel jLabelDia;
+    private javax.swing.JLabel jLabelMes;
+    public javax.swing.JLabel jLabelNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,7 +22,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
         setTitle("Agregar Pedido");
         this.setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -384,9 +384,10 @@ public class GUIPizzeria extends javax.swing.JFrame {
             GUIListaPedidos lista=new GUIListaPedidos();
             Pedido pedido1=new Pedido(jTextFieldNombre.getText(), 18, 5, 2018, demoraEnNumero, pedido);
             lista.agregarPedido(pedido1);
-            
+            lista.jLabelNombre.setText(lista.datosDelPedido(pedido1));
             
             dispose();
+            
 
             } catch (Exception e) {
                     jLabelErrorDemora.setText("Tiene que ingresar demora valida");
