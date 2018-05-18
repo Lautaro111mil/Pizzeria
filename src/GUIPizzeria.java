@@ -380,6 +380,12 @@ public class GUIPizzeria extends javax.swing.JFrame {
             ventana.jLabelCantidad1.setText(cantidadIngresada);
             ventana.jLabelObservacion.setText(jTextFieldObservacion.getText());
             pedido.setObservacion(jTextFieldObservacion.getText());
+            
+            GUIListaPedidos lista=new GUIListaPedidos();
+            Pedido pedido1=new Pedido(jTextFieldNombre.getText(), 18, 5, 2018, demoraEnNumero, pedido);
+            lista.agregarPedido(pedido1);
+            
+            
             dispose();
 
             } catch (Exception e) {
