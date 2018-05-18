@@ -6,7 +6,6 @@ import java.awt.print.Printable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author User
@@ -20,6 +19,34 @@ public class Pedido {
     private int demoraEstimada;
     private ItemPedido itemPedido;
     private final int ANIO_CREACION = 2018;
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public int getDiaCreacion() {
+        return diaCreacion;
+    }
+
+    public int getMesCreacion() {
+        return mesCreacion;
+    }
+
+    public int getAnioCreacion() {
+        return anioCreacion;
+    }
+
+    public int getDemoraEstimada() {
+        return demoraEstimada;
+    }
+
+    public ItemPedido getItemPedido() {
+        return itemPedido;
+    }
+
+    public int getANIO_CREACION() {
+        return ANIO_CREACION;
+    }
 
     public Pedido(String nombreCliente, int diaCreacion, int mesCreacion, int anioCreacion, int demoraEstimada, ItemPedido itemPedido) throws Exception {
         if (nombreCliente.isEmpty() || nombreCliente == null || nombreCliente.contains("0") && nombreCliente.contains("1") && nombreCliente.contains("2") && nombreCliente.contains("3") && nombreCliente.contains("4") && nombreCliente.contains("5") && nombreCliente.contains("6") && nombreCliente.contains("7") && nombreCliente.contains("8") && nombreCliente.contains("9")) {
