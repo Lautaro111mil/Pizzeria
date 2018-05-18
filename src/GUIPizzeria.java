@@ -176,9 +176,8 @@ public class GUIPizzeria extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jTextFieldMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelErrorDemora, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,12 +232,12 @@ public class GUIPizzeria extends javax.swing.JFrame {
                         .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelErrorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelErrorHoraMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextFieldHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4)
                         .addComponent(jTextFieldMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabelErrorHoraMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel5))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)))
@@ -281,6 +280,12 @@ public class GUIPizzeria extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTamañoActionPerformed
 
     private void jButtonOKClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKClick
+        
+        jLabelErrorCantidad.setText("");
+        jLabelErrorDemora.setText("");
+        jLabelErrorHoraMinuto.setText("");
+        jLabelErrorNombre.setText("");
+        
         ventanaDatosDePedido ventana = new ventanaDatosDePedido();
         Pizza pizza = new Pizza();
         if (jComboBoxTamaño.getSelectedItem().equals("Grande (8)")) {
@@ -325,8 +330,6 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
         } catch (Exception e) {
             jLabelErrorCantidad.setText("Agregue un número válido");
-            jLabelErrorDemora.setText("Tiene que ingresar demora valida");
-
         }
 
         long cantidad = Long.valueOf(jTextFieldCantidad.getText());
@@ -355,11 +358,8 @@ public class GUIPizzeria extends javax.swing.JFrame {
             try {
                 long demoraEnNumero = Long.valueOf(demoraIngresada);
                 long cantidadNumero = Long.valueOf(cantidadIngresada);
-
-            } catch (Exception e) {
-                    jLabelErrorDemora.setText("Tiene que ingresar demora valida");
-            }
-            ventana.jLabelDemora.setText(jTextFieldDemora.getText());
+                
+                ventana.jLabelDemora.setText(jTextFieldDemora.getText());
             try {
                 long horaNumero = Long.valueOf(jTextFieldHora.getText());
                 long minutoNumero = Long.valueOf(jTextFieldMinuto.getText());
@@ -381,6 +381,11 @@ public class GUIPizzeria extends javax.swing.JFrame {
             ventana.jLabelObservacion.setText(jTextFieldObservacion.getText());
             pedido.setObservacion(jTextFieldObservacion.getText());
             dispose();
+
+            } catch (Exception e) {
+                    jLabelErrorDemora.setText("Tiene que ingresar demora valida");
+            }
+            
 
         }
     }//GEN-LAST:event_jButtonOKClick
