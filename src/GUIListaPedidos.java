@@ -115,8 +115,8 @@ public class GUIListaPedidos extends javax.swing.JFrame {
 
     private void jButtonAgregarPedidoActionclock(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarPedidoActionclock
         GUIPizzeria agregarPedido = new GUIPizzeria();
+        agregarPedido.setPantallaListado(this);
         agregarPedido.setVisible(true);
-
     }//GEN-LAST:event_jButtonAgregarPedidoActionclock
 
     /**
@@ -163,4 +163,5 @@ public class GUIListaPedidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMes;
     public javax.swing.JLabel jLabelNombre;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -13,6 +13,8 @@ import java.util.Date;
  */
 public class GUIPizzeria extends javax.swing.JFrame {
 
+    private GUIListaPedidos pantallaListado;
+
     /**
      * Creates new form GUIPizzeria
      */
@@ -337,7 +339,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
             jLabelErrorCantidad.setText("La cantidad tiene que ser igual mayor a 1");
 
         }
-        ItemPedido pedido = new ItemPedido(pizza, cantidad);
+        ItemPedido itemPedido = new ItemPedido(pizza, cantidad);
 
         String nombreIngresado = jTextFieldNombre.getText();
         nombreIngresado = nombreIngresado.trim();
@@ -361,14 +363,19 @@ public class GUIPizzeria extends javax.swing.JFrame {
                 
                 ventana.jLabelDemora.setText(jTextFieldDemora.getText());
             try {
-                long horaNumero = Long.valueOf(jTextFieldHora.getText());
-                long minutoNumero = Long.valueOf(jTextFieldMinuto.getText());
-                ventana.setVisible(true);
+                int horaNumero = Integer.valueOf(jTextFieldHora.getText());
+                int minutoNumero = Integer.valueOf(jTextFieldMinuto.getText());
+                
+                 // Darle el Pedido creado a la pantalla anterior
+            Pedido pedido =new Pedido(jTextFieldNombre.getText(), horaNumero, minutoNumero, demoraEnNumero, itemPedido);
+            pantallaListado.agregarPedido(pedido);
+            ventana.setVisible(true);
+            
 
             } catch (Exception e) {
                 jLabelErrorHoraMinuto.setText("Tiene que ingresar hora o minutos válidos");
             }
-            double CostoEnNumero = pedido.calcularCosto();
+            double CostoEnNumero = itemPedido.calcularCosto();
             String costo = (String) String.valueOf(CostoEnNumero);
             ventana.jLabelCosto.setText(costo);
             String tamaño = (String) jComboBoxTamaño.getSelectedItem();
@@ -379,16 +386,10 @@ public class GUIPizzeria extends javax.swing.JFrame {
             ventana.jLabelVariedad1.setText(variedad);
             ventana.jLabelCantidad1.setText(cantidadIngresada);
             ventana.jLabelObservacion.setText(jTextFieldObservacion.getText());
-            pedido.setObservacion(jTextFieldObservacion.getText());
-            
-            GUIListaPedidos lista=new GUIListaPedidos();
-            Pedido pedido1=new Pedido(jTextFieldNombre.getText(), 18, 5, 2018, demoraEnNumero, pedido);
-            lista.agregarPedido(pedido1);
-            
+            itemPedido.setObservacion(jTextFieldObservacion.getText());
             
             dispose();
-            
-
+                        
             } catch (Exception e) {
                     jLabelErrorDemora.setText("Tiene que ingresar demora valida");
             }
@@ -505,6 +506,10 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
         }
 
+    }
+
+    public void setPantallaListado(GUIListaPedidos pantallaListado) {
+        this.pantallaListado = pantallaListado;
     }
 
 }

@@ -20,9 +20,15 @@ public class Pedido {
     private int minutosDemora;
     private ItemPedido itemPedido;
 
-    public Pedido(String nombreCliente, int demoraEstimada, ItemPedido itemPedido) throws Exception {
-
+    public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora, ItemPedido itemPedido) {
+        this.nombreCliente = nombreCliente;
+        this.horaPedido = horaPedido;
+        this.minutosPedido = minutosPedido;
+        this.minutosDemora = minutosDemora;
+        this.itemPedido = itemPedido;
     }
+
+    
 
     public String getNombreCliente() {
         return nombreCliente;
