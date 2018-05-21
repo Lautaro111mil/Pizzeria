@@ -24,24 +24,40 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+              <Component id="jButtonAgregarPedido" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="104" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabelNombre1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                      <Component id="jButtonAgregarPedido" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelHora" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="jLabelMinutos" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabelDia" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelMes" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAnio" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelDemoraEstimada" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelCosto" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabelHora1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="jLabelMinutos1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="210" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabelDemora" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDemora1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelCosto" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelCosto1" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,18 +65,22 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabelDia" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabelMes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabelAnio" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabelDemoraEstimada" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabelCosto" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="250" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelHora" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelMinutos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDemora" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelCosto" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelHora1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelMinutos1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDemora1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelCosto1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="356" max="32767" attributes="0"/>
               <Component id="jButtonAgregarPedido" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -84,29 +104,49 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelDia">
+    <Component class="javax.swing.JLabel" name="jLabelHora">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelMes">
+    <Component class="javax.swing.JLabel" name="jLabelMinutos">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelAnio">
+    <Component class="javax.swing.JLabel" name="jLabelDemora">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel4"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelDemoraEstimada">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel5"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelCosto">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel6"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNombre1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelHora1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelMinutos1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelDemora1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelCosto1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
   </SubComponents>

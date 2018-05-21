@@ -22,8 +22,41 @@ public class GUIListaPedidos extends javax.swing.JFrame {
         initComponents();
     }
 
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
     public void agregarPedido(Pedido pedido) {
+        
         pedidos.add(pedido);
+        
+        int pos = pedidos.size();
+        if (pos == 1){
+               jLabelNombre.setText(pedido.getNombreCliente());
+                String hora=(String) String.valueOf(pedido.getHoraPedido());
+                String minuto=(String) String.valueOf(pedido.getMinutosPedido());
+                String demora=(String) String.valueOf(pedido.getMinutosDemora());
+                String costo=(String) String.valueOf(pedido.getItemPedido().calcularCosto());
+        
+                jLabelHora.setText(hora);
+                jLabelMinutos.setText(minuto);
+                jLabelDemora.setText(demora);
+                jLabelCosto.setText(costo);
+        }
+        if (pos == 2){
+               jLabelNombre1.setText(pedido.getNombreCliente());
+                String hora=(String) String.valueOf(pedido.getHoraPedido());
+                String minuto=(String) String.valueOf(pedido.getMinutosPedido());
+                String demora=(String) String.valueOf(pedido.getMinutosDemora());
+                String costo=(String) String.valueOf(pedido.getItemPedido().calcularCosto());
+        
+                jLabelHora1.setText(hora);
+                jLabelMinutos1.setText(minuto);
+                jLabelDemora1.setText(demora);
+                jLabelCosto1.setText(costo);
+        }
+        
+              
     }
 
     public void datosDelPedido(Pedido pedido) {
@@ -43,11 +76,15 @@ public class GUIListaPedidos extends javax.swing.JFrame {
 
         jButtonAgregarPedido = new javax.swing.JButton();
         jLabelNombre = new javax.swing.JLabel();
-        jLabelDia = new javax.swing.JLabel();
-        jLabelMes = new javax.swing.JLabel();
-        jLabelAnio = new javax.swing.JLabel();
-        jLabelDemoraEstimada = new javax.swing.JLabel();
+        jLabelHora = new javax.swing.JLabel();
+        jLabelMinutos = new javax.swing.JLabel();
+        jLabelDemora = new javax.swing.JLabel();
         jLabelCosto = new javax.swing.JLabel();
+        jLabelNombre1 = new javax.swing.JLabel();
+        jLabelHora1 = new javax.swing.JLabel();
+        jLabelMinutos1 = new javax.swing.JLabel();
+        jLabelDemora1 = new javax.swing.JLabel();
+        jLabelCosto1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,52 +97,75 @@ public class GUIListaPedidos extends javax.swing.JFrame {
 
         jLabelNombre.setText("jLabel1");
 
-        jLabelDia.setText("jLabel2");
+        jLabelHora.setText("jLabel2");
 
-        jLabelMes.setText("jLabel3");
+        jLabelMinutos.setText("jLabel3");
 
-        jLabelAnio.setText("jLabel4");
-
-        jLabelDemoraEstimada.setText("jLabel5");
+        jLabelDemora.setText("jLabel4");
 
         jLabelCosto.setText("jLabel6");
+
+        jLabelNombre1.setText("jLabel1");
+
+        jLabelHora1.setText("jLabel1");
+
+        jLabelMinutos1.setText("jLabel1");
+
+        jLabelDemora1.setText("jLabel1");
+
+        jLabelCosto1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(jButtonAgregarPedido)
+                .addContainerGap(104, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelNombre1)
+                    .addComponent(jLabelNombre))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelHora)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabelMinutos))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelHora1)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabelMinutos1)))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelDemora)
+                    .addComponent(jLabelDemora1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jButtonAgregarPedido))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelDia)
-                            .addComponent(jLabelNombre)
-                            .addComponent(jLabelMes)
-                            .addComponent(jLabelAnio)
-                            .addComponent(jLabelDemoraEstimada)
-                            .addComponent(jLabelCosto))))
-                .addContainerGap(210, Short.MAX_VALUE))
+                    .addComponent(jLabelCosto, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelCosto1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addComponent(jLabelNombre)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelDia)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelMes)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelAnio)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelDemoraEstimada)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelCosto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNombre)
+                    .addComponent(jLabelHora)
+                    .addComponent(jLabelMinutos)
+                    .addComponent(jLabelDemora)
+                    .addComponent(jLabelCosto))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNombre1)
+                    .addComponent(jLabelHora1)
+                    .addComponent(jLabelMinutos1)
+                    .addComponent(jLabelDemora1)
+                    .addComponent(jLabelCosto1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
                 .addComponent(jButtonAgregarPedido)
                 .addContainerGap())
         );
@@ -156,12 +216,16 @@ public class GUIListaPedidos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregarPedido;
-    private javax.swing.JLabel jLabelAnio;
     private javax.swing.JLabel jLabelCosto;
-    private javax.swing.JLabel jLabelDemoraEstimada;
-    private javax.swing.JLabel jLabelDia;
-    private javax.swing.JLabel jLabelMes;
+    private javax.swing.JLabel jLabelCosto1;
+    private javax.swing.JLabel jLabelDemora;
+    private javax.swing.JLabel jLabelDemora1;
+    private javax.swing.JLabel jLabelHora;
+    private javax.swing.JLabel jLabelHora1;
+    private javax.swing.JLabel jLabelMinutos;
+    private javax.swing.JLabel jLabelMinutos1;
     public javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelNombre1;
     // End of variables declaration//GEN-END:variables
 
 }
