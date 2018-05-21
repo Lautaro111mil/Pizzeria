@@ -20,9 +20,15 @@ public class Pedido {
     private int minutosDemora;
     private ItemPedido itemPedido;
 
-    public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora, ItemPedido itemPedido) {
+    public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora, ItemPedido itemPedido) throws Exception {
+        if (nombreCliente.isEmpty() || nombreCliente == null || nombreCliente.contains("0") || nombreCliente.contains("1") || nombreCliente.contains("2") || nombreCliente.contains("3") || nombreCliente.contains("4") || nombreCliente.contains("5") || nombreCliente.contains("6") || nombreCliente.contains("7") || nombreCliente.contains("8") || nombreCliente.contains("9")) {
+            throw new Exception("Ingrese un nombre de cliente válido");
+        }
         this.nombreCliente = nombreCliente;
         this.horaPedido = horaPedido;
+        if (minutosDemora < 0) {
+            throw new Exception("Ingrese una demora válida");
+        }
         this.minutosPedido = minutosPedido;
         this.minutosDemora = minutosDemora;
         this.itemPedido = itemPedido;
@@ -50,25 +56,13 @@ public class Pedido {
         return itemPedido;
     }
 
-    public Pedido(String nombreCliente, int diaCreacion, int mesCreacion, int anioCreacion, int demoraEstimada, ItemPedido itemPedido) throws Exception {
-        if (nombreCliente.isEmpty() || nombreCliente == null || nombreCliente.contains("0") && nombreCliente.contains("1") && nombreCliente.contains("2") && nombreCliente.contains("3") && nombreCliente.contains("4") && nombreCliente.contains("5") && nombreCliente.contains("6") && nombreCliente.contains("7") && nombreCliente.contains("8") && nombreCliente.contains("9")) {
-            throw new Exception("Ingrese un nombre de cliente válido");
-        }
-        this.nombreCliente = nombreCliente;
-        if (minutosDemora < 0) {
-            throw new Error("Ingrese una demora válida");
-        }
-        this.minutosDemora = demoraEstimada;
-        this.itemPedido = itemPedido;
-    }
-
     public boolean estaAtrasado(Date ahora) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(calendar.HOUR_OF_DAY, horaPedido);
         calendar.set(calendar.MINUTE, minutosPedido);
         calendar.add(calendar.MINUTE, minutosDemora);
         Date fechaPedido = calendar.getTime();
-        return fechaPedido.before(ahora);
+        return fechaPedido.after(ahora);
     }
 
 }
