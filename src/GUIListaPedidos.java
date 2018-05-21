@@ -1,6 +1,11 @@
 
-import java.util.LinkedList;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimerTask;
+import java.util.Timer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,13 +18,14 @@ import java.util.List;
  */
 public class GUIListaPedidos extends javax.swing.JFrame {
 
-    private List<Pedido> pedidos = new LinkedList<>();
+    private List<Pedido> pedidos = new ArrayList<>();
 
     /**
      * Creates new form GUIListaPedidos
      */
     public GUIListaPedidos() {
         initComponents();
+        iniciarTimer();
     }
 
     public List<Pedido> getPedidos() {
@@ -27,42 +33,64 @@ public class GUIListaPedidos extends javax.swing.JFrame {
     }
 
     public void agregarPedido(Pedido pedido) {
-        
+
         pedidos.add(pedido);
-        
+
         int pos = pedidos.size();
-        if (pos == 1){
-               jLabelNombre.setText(pedido.getNombreCliente());
-                String hora=(String) String.valueOf(pedido.getHoraPedido());
-                String minuto=(String) String.valueOf(pedido.getMinutosPedido());
-                String demora=(String) String.valueOf(pedido.getMinutosDemora());
-                String costo=(String) String.valueOf(pedido.getItemPedido().calcularCosto());
-        
-                jLabelHora.setText(hora);
-                jLabelMinutos.setText(minuto);
-                jLabelDemora.setText(demora);
-                jLabelCosto.setText(costo);
+        if (pos == 1) {
+            jLabelNombre.setText(pedido.getNombreCliente());
+            String hora = (String) String.valueOf(pedido.getHoraPedido());
+            String minuto = (String) String.valueOf(pedido.getMinutosPedido());
+            String demora = (String) String.valueOf(pedido.getMinutosDemora());
+            String costo = (String) String.valueOf(pedido.getItemPedido().calcularCosto());
+
+            jLabelHora.setText(hora);
+            jLabelMinutos.setText(minuto);
+            jLabelDemora.setText(demora);
+            jLabelCosto.setText(costo);
         }
-        if (pos == 2){
-               jLabelNombre1.setText(pedido.getNombreCliente());
-                String hora=(String) String.valueOf(pedido.getHoraPedido());
-                String minuto=(String) String.valueOf(pedido.getMinutosPedido());
-                String demora=(String) String.valueOf(pedido.getMinutosDemora());
-                String costo=(String) String.valueOf(pedido.getItemPedido().calcularCosto());
-        
-                jLabelHora1.setText(hora);
-                jLabelMinutos1.setText(minuto);
-                jLabelDemora1.setText(demora);
-                jLabelCosto1.setText(costo);
+        if (pos == 2) {
+            jLabelNombre1.setText(pedido.getNombreCliente());
+            String hora = (String) String.valueOf(pedido.getHoraPedido());
+            String minuto = (String) String.valueOf(pedido.getMinutosPedido());
+            String demora = (String) String.valueOf(pedido.getMinutosDemora());
+            String costo = (String) String.valueOf(pedido.getItemPedido().calcularCosto());
+
+            jLabelHora1.setText(hora);
+            jLabelMinutos1.setText(minuto);
+            jLabelDemora1.setText(demora);
+            jLabelCosto1.setText(costo);
         }
-        
-              
+
+    }
+
+    private void iniciarTimer() {
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                for (int i = 0; i < pedidos.size(); i++) {
+                    if (pedidos.get(i).estaAtrasado(new Date())) {
+                        if (i == 0) {
+                            jLabelHora.setForeground(Color.red);
+                            jLabelMinutos.setForeground(Color.red);
+                        }
+                        if (i == 1) {
+                            jLabelHora1.setForeground(Color.red);
+                            jLabelMinutos1.setForeground(Color.red);
+                        }
+
+                    }
+                }
+                //To change body of generated methods, choose Tools | Templates.
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(task, 0, 60000);
     }
 
     public void datosDelPedido(Pedido pedido) {
         String conversionNombre = (String) String.valueOf(pedido.getNombreCliente());
-        
-        
+
     }
 
     /**

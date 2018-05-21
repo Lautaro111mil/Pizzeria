@@ -62,7 +62,7 @@ public class Pedido {
         calendar.set(calendar.MINUTE, minutosPedido);
         calendar.add(calendar.MINUTE, minutosDemora);
         Date fechaPedido = calendar.getTime();
-        return fechaPedido.after(ahora);
+        return fechaPedido.before(ahora);
     }
 
 }
