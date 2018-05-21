@@ -1,5 +1,7 @@
 
 import java.awt.print.Printable;
+import java.util.Calendar;
+import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,43 +15,33 @@ import java.awt.print.Printable;
 public class Pedido {
 
     private String nombreCliente;
-    private int diaCreacion;
-    private int mesCreacion;
-    private int anioCreacion;
-    private long demoraEstimada;
+    private int horaPedido;
+    private int minutosPedido;
+    private int minutosDemora;
     private ItemPedido itemPedido;
-    private final int ANIO_CREACION = 2018;
 
+    public Pedido(String nombreCliente, int demoraEstimada, ItemPedido itemPedido) throws Exception {
 
-    public Pedido(String nombreCliente, int diaCreacion, int mesCreacion, int anioCreacion, long demoraEstimada, ItemPedido itemPedido) throws Exception {
-                  
-        }
+    }
+
     public String getNombreCliente() {
         return nombreCliente;
     }
 
-    public int getDiaCreacion() {
-        return diaCreacion;
+    public long getMinutosDemora() {
+        return minutosDemora;
     }
 
-    public int getMesCreacion() {
-        return mesCreacion;
+    public int getHoraPedido() {
+        return horaPedido;
     }
 
-    public int getAnioCreacion() {
-        return anioCreacion;
-    }
-
-    public long getDemoraEstimada() {
-        return demoraEstimada;
+    public int getMinutosPedido() {
+        return minutosPedido;
     }
 
     public ItemPedido getItemPedido() {
         return itemPedido;
-    }
-
-    public int getANIO_CREACION() {
-        return ANIO_CREACION;
     }
 
     public Pedido(String nombreCliente, int diaCreacion, int mesCreacion, int anioCreacion, int demoraEstimada, ItemPedido itemPedido) throws Exception {
@@ -57,23 +49,20 @@ public class Pedido {
             throw new Exception("Ingrese un nombre de cliente válido");
         }
         this.nombreCliente = nombreCliente;
-        if (diaCreacion < 1 || diaCreacion > 31) {
-            throw new Exception("Ingrese un día válido");
+        if (minutosDemora < 0) {
+            throw new Error("Ingrese una demora válida");
         }
-        this.diaCreacion = diaCreacion;
-        if (mesCreacion < 1 || mesCreacion > 12) {
-            throw new Exception("Ingrese un mes válido");
-        }
-        this.mesCreacion = mesCreacion;
-        if (anioCreacion < ANIO_CREACION) {
-            throw new Exception("Ingrese un año válido");
-        }
-        this.anioCreacion = anioCreacion;
-        if (demoraEstimada < 1) {
-            throw new Exception("Ingrese una demora estimada válida");
-        }
-        this.demoraEstimada = demoraEstimada;
+        this.minutosDemora = demoraEstimada;
         this.itemPedido = itemPedido;
+    }
+
+    public boolean estaAtrasado(Date ahora) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.HOUR_OF_DAY, horaPedido);
+        calendar.set(calendar.MINUTE, minutosPedido);
+        calendar.add(calendar.MINUTE, minutosDemora);
+        Date fechaPedido = calendar.getTime();
+        return fechaPedido.before(ahora);
     }
 
 }
