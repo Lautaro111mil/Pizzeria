@@ -356,7 +356,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
             String cantidadIngresada = jTextFieldCantidad.getText().trim();
 
             try {
-                long demoraEnNumero = Long.valueOf(demoraIngresada);
+                int demoraEnNumero = Integer.valueOf(demoraIngresada);
                 long cantidadNumero = Long.valueOf(cantidadIngresada);
                 
                 ventana.jLabelDemora.setText(jTextFieldDemora.getText());
@@ -384,7 +384,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
             GUIListaPedidos lista=new GUIListaPedidos();
             Pedido pedido1=new Pedido(jTextFieldNombre.getText(), 18, 5, 2018, demoraEnNumero, pedido);
             lista.agregarPedido(pedido1);
-            lista.jLabelNombre.setText(lista.datosDelPedido(pedido1));
+            
             
             dispose();
             
