@@ -59,7 +59,7 @@ public class GUIListaPedidos extends javax.swing.JFrame {
             jLabelHora1.setText(hora);
             jLabelMinutos1.setText(minuto);
             jLabelDemora1.setText(demora);
-            jLabelCosto1.setText(costo);
+            jLabelCosto1.setText(costo);    
         }
         if (pos == 3) {
         jLabelNombre2.setText(pedido.getNombreCliente());
