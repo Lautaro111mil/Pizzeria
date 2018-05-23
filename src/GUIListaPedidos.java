@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimerTask;
 import java.util.Timer;
+import java.awt.Toolkit;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -132,6 +133,7 @@ public class GUIListaPedidos extends javax.swing.JFrame {
                     }
                 }
                     }
+                Toolkit.getDefaultToolkit().beep();
                 
                 //To change body of generated methods, choose Tools | Templates.
             }
@@ -185,6 +187,11 @@ public class GUIListaPedidos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -260,71 +267,119 @@ public class GUIListaPedidos extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Costo");
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("jButton5");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabelNombre4)
-                    .addComponent(jLabelNombre3)
-                    .addComponent(jLabelNombre2)
-                    .addComponent(jLabelNombre1)
-                    .addComponent(jLabelNombre))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabelHora4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelHora3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(43, 43, 43)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabelMinutos3)
-                                    .addComponent(jLabelMinutos4)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelHora2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabelMinutos2))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabelHora1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelHora, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabelMinutos))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabelMinutos1)))))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelDemora)
-                    .addComponent(jLabelDemora1)
-                    .addComponent(jLabelDemora2)
-                    .addComponent(jLabelDemora3)
-                    .addComponent(jLabelDemora4)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelCosto, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelCosto1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelCosto2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelCosto3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelCosto4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(28, 28, 28))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(147, 147, 147)
                 .addComponent(jButtonAgregarPedido)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabelNombre4)
+                            .addComponent(jLabelNombre3)
+                            .addComponent(jLabelNombre2)
+                            .addComponent(jLabelNombre1)
+                            .addComponent(jLabelNombre))
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(43, 43, 43)
+                                .addComponent(jLabel3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabelHora4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabelHora3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(43, 43, 43)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabelMinutos3)
+                                            .addComponent(jLabelMinutos4)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelHora2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(43, 43, 43)
+                                        .addComponent(jLabelMinutos2))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabelHora1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelHora, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(43, 43, 43)
+                                        .addComponent(jLabelMinutos))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(49, 49, 49)
+                                        .addComponent(jLabelMinutos1)))))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelDemora)
+                            .addComponent(jLabelDemora1)
+                            .addComponent(jLabelDemora2)
+                            .addComponent(jLabelDemora3)
+                            .addComponent(jLabelDemora4)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCosto, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelCosto1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelCosto2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelCosto3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelCosto4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton3))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,44 +391,58 @@ public class GUIListaPedidos extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre)
-                    .addComponent(jLabelHora)
-                    .addComponent(jLabelMinutos)
-                    .addComponent(jLabelDemora)
-                    .addComponent(jLabelCosto))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre1)
-                    .addComponent(jLabelHora1)
-                    .addComponent(jLabelMinutos1)
-                    .addComponent(jLabelDemora1)
-                    .addComponent(jLabelCosto1))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre2)
-                    .addComponent(jLabelHora2)
-                    .addComponent(jLabelMinutos2)
-                    .addComponent(jLabelDemora2)
-                    .addComponent(jLabelCosto2))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre3)
-                    .addComponent(jLabelHora3)
-                    .addComponent(jLabelMinutos3)
-                    .addComponent(jLabelDemora3)
-                    .addComponent(jLabelCosto3))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre4)
-                    .addComponent(jLabelHora4)
-                    .addComponent(jLabelMinutos4)
-                    .addComponent(jLabelDemora4)
-                    .addComponent(jLabelCosto4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
-                .addComponent(jButtonAgregarPedido)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNombre)
+                            .addComponent(jLabelHora)
+                            .addComponent(jLabelMinutos)
+                            .addComponent(jLabelDemora)
+                            .addComponent(jLabelCosto))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNombre1)
+                            .addComponent(jLabelHora1)
+                            .addComponent(jLabelMinutos1)
+                            .addComponent(jLabelDemora1)
+                            .addComponent(jLabelCosto1))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNombre2)
+                            .addComponent(jLabelHora2)
+                            .addComponent(jLabelMinutos2)
+                            .addComponent(jLabelDemora2)
+                            .addComponent(jLabelCosto2))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNombre3)
+                            .addComponent(jLabelHora3)
+                            .addComponent(jLabelMinutos3)
+                            .addComponent(jLabelDemora3)
+                            .addComponent(jLabelCosto3))
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNombre4)
+                            .addComponent(jLabelHora4)
+                            .addComponent(jLabelMinutos4)
+                            .addComponent(jLabelDemora4)
+                            .addComponent(jLabelCosto4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
+                        .addComponent(jButtonAgregarPedido)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButton3)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButton4)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButton5)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -409,7 +478,60 @@ public class GUIListaPedidos extends javax.swing.JFrame {
                     }
                 }
                     }
+            Toolkit.getDefaultToolkit().beep();
     }//GEN-LAST:event_jButtonAgregarPedidoActionclock
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        pedidos.get(1).setFueEntregado(true);
+        jLabelNombre.setText("");
+        jLabelHora.setText("");
+        jLabelMinutos.setText("");
+        jLabelDemora.setText("");
+        jLabelCosto.setText("");
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       pedidos.get(2).setFueEntregado(true);
+       jLabelNombre1.setText("");
+       jLabelHora1.setText("");
+       jLabelMinutos1.setText("");
+       jLabelDemora1.setText("");
+       jLabelCosto1.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+     pedidos.get(3).setFueEntregado(true);
+       jLabelNombre2.setText("");
+       jLabelHora2.setText("");
+       jLabelMinutos2.setText("");
+       jLabelDemora2.setText("");
+       jLabelCosto2.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+pedidos.get(4).setFueEntregado(true);
+       jLabelNombre3.setText("");
+       jLabelHora3.setText("");
+       jLabelMinutos3.setText("");
+       jLabelDemora3.setText("");
+       jLabelCosto3.setText("");
+       
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+pedidos.get(5).setFueEntregado(true);
+       jLabelNombre4.setText("");
+       jLabelHora4.setText("");
+       jLabelMinutos4.setText("");
+       jLabelDemora4.setText("");
+       jLabelCosto4.setText("");
+       
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,6 +569,11 @@ public class GUIListaPedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAgregarPedido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
