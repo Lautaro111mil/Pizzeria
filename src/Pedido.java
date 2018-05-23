@@ -19,6 +19,15 @@ public class Pedido {
     private int minutosPedido;
     private int minutosDemora;
     private ItemPedido itemPedido;
+    private boolean fueEntregado;
+
+    public boolean getFueEntregado() {
+        return fueEntregado;
+    }
+
+    public void setFueEntregado(boolean fueEntregado) {
+        this.fueEntregado = fueEntregado;
+    }
 
     public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora, ItemPedido itemPedido) throws Exception {
         if (nombreCliente.isEmpty() || nombreCliente == null || nombreCliente.contains("0") || nombreCliente.contains("1") || nombreCliente.contains("2") || nombreCliente.contains("3") || nombreCliente.contains("4") || nombreCliente.contains("5") || nombreCliente.contains("6") || nombreCliente.contains("7") || nombreCliente.contains("8") || nombreCliente.contains("9")) {
@@ -33,8 +42,6 @@ public class Pedido {
         this.minutosDemora = minutosDemora;
         this.itemPedido = itemPedido;
     }
-
-    
 
     public String getNombreCliente() {
         return nombreCliente;
