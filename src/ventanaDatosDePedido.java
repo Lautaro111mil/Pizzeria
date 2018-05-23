@@ -150,7 +150,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setText("Observacion");
+        jLabel14.setText("Observaciones");
 
         jLabelObservacion.setText("jLabel15");
 
@@ -218,7 +218,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                                             .addComponent(jLabelVariedad1)
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabelObservacion)))))
-                            .addGap(0, 25, Short.MAX_VALUE))
+                            .addGap(0, 14, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(16, 16, 16)
                             .addComponent(jButtonCerrar)
