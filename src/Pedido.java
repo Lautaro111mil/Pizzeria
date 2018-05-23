@@ -26,7 +26,7 @@ public class Pedido {
         }
         this.nombreCliente = nombreCliente;
         this.horaPedido = horaPedido;
-        if (minutosDemora < 0) {
+        if (minutosDemora <= 0) {
             throw new Exception("Ingrese una demora válida");
         }
         this.minutosPedido = minutosPedido;
