@@ -383,6 +383,32 @@ public class GUIListaPedidos extends javax.swing.JFrame {
         GUIPizzeria agregarPedido = new GUIPizzeria();
         agregarPedido.setPantallaListado(this);
         agregarPedido.setVisible(true);
+            for (int i = 0; i < pedidos.size(); i++) {
+                    if (pedidos.get(i).estaAtrasado(new Date())) {
+                        if (i == 0) {
+                            jLabelHora.setForeground(Color.red);
+                            jLabelMinutos.setForeground(Color.red);
+                            
+                        }
+                        if (i == 1) {
+                            jLabelHora1.setForeground(Color.red);
+                            jLabelMinutos1.setForeground(Color.red);
+                        }
+                        if (i == 2) {
+                            jLabelHora2.setForeground(Color.red);
+                            jLabelMinutos2.setForeground(Color.red);
+                            } 
+                        if (i == 3)  {
+                            jLabelHora3.setForeground(Color.red);
+                            jLabelMinutos3.setForeground(Color.red);
+                        }
+                        if (i == 4) {
+                            jLabelHora4.setForeground(Color.red);
+                            jLabelMinutos4.setForeground(Color.red);
+
+                    }
+                }
+                    }
     }//GEN-LAST:event_jButtonAgregarPedidoActionclock
 
     /**
