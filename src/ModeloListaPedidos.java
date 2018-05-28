@@ -130,4 +130,10 @@ public class ModeloListaPedidos implements TableModel {
 
     }
 
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+    
+    
+
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.TimerTask;
 import java.util.Timer;
 import java.awt.Toolkit;
+import javax.swing.table.TableCellRenderer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -195,6 +196,9 @@ public class GUIListaPedidos extends javax.swing.JFrame {
     public void inicializarTabla(){
         modelo= new ModeloListaPedidos();
         tabla.setModel(modelo);
+       
+        ResaltadorDePedidosVencidos resaltador = new ResaltadorDePedidosVencidos (modelo);
+        tabla.setDefaultRenderer(String.class, resaltador);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
