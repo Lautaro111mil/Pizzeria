@@ -21,6 +21,7 @@ public class Pedido {
     private int minutosDemora;
     private ItemPedido itemPedido;
     private boolean fueEntregado;
+    private Date fechaPedido;
 
     public boolean getFueEntregado() {
         return fueEntregado;
@@ -30,7 +31,7 @@ public class Pedido {
         this.fueEntregado = fueEntregado;
     }
 
-    public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora, ItemPedido itemPedido) throws Exception {
+    public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora, ItemPedido itemPedido, Date fechaPedido) throws Exception {
         if (nombreCliente.isEmpty() || nombreCliente == null) {
             throw new Exception("Ingrese un nombre de cliente válido");
         }
@@ -42,6 +43,7 @@ public class Pedido {
         this.minutosPedido = minutosPedido;
         this.minutosDemora = minutosDemora;
         this.itemPedido = itemPedido;
+        this.fechaPedido = fechaPedido;
     }
 
     public String getNombreCliente() {
@@ -69,7 +71,7 @@ public class Pedido {
         calendar.set(calendar.HOUR_OF_DAY, horaPedido);
         calendar.set(calendar.MINUTE, minutosPedido);
         calendar.add(calendar.MINUTE, minutosDemora);
-        Date fechaPedido = calendar.getTime();
+        fechaPedido = calendar.getTime();
         return fechaPedido.before(ahora);
     }
 
@@ -105,7 +107,5 @@ public class Pedido {
         }
         return true;
     }
-    
-    
 
 }

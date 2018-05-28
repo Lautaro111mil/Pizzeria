@@ -394,7 +394,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
                 
                  // Darle el Pedido creado a la pantalla anterior
             
-            Pedido pedido =new Pedido(jTextFieldNombre.getText(), horaNumero, minutoNumero, demoraEnNumero, itemPedido);
+            Pedido pedido =new Pedido(jTextFieldNombre.getText(), horaNumero, minutoNumero, demoraEnNumero, itemPedido, new Date());
             pantallaListado.agregarPedido(pedido);
             
             ventana.setVisible(true);
