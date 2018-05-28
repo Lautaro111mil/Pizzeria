@@ -19,7 +19,6 @@ import java.awt.Toolkit;
  */
 public class GUIListaPedidos extends javax.swing.JFrame {
 
-    private List<Pedido> pedidos = new ArrayList<>();
     private ModeloListaPedidos modelo;
 
     /**
@@ -31,79 +30,10 @@ public class GUIListaPedidos extends javax.swing.JFrame {
         inicializarTabla();
     }
 
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
-
     public void agregarPedido(Pedido pedido) {
 
-        pedidos.add(pedido);
-
-//        int pos = pedidos.size();
-//        if (pos == 1) {
-//            jLabelNombre.setText(pedido.getNombreCliente());
-//            String hora = (String) String.valueOf(pedido.getHoraPedido());
-//            String minuto = (String) String.valueOf(pedido.getMinutosPedido());
-//            String demora = (String) String.valueOf(pedido.getMinutosDemora());
-//            String costo = (String) String.valueOf(pedido.getItemPedido().calcularCosto());
-//
-//            jLabelHora.setText(hora);
-//            jLabelMinutos.setText(minuto);
-//            jLabelDemora.setText(demora);
-//            jLabelCosto.setText(costo);
-//        }
-//        if (pos == 2) {
-//            jLabelNombre1.setText(pedido.getNombreCliente());
-//            String hora = (String) String.valueOf(pedido.getHoraPedido());
-//            String minuto = (String) String.valueOf(pedido.getMinutosPedido());
-//            String demora = (String) String.valueOf(pedido.getMinutosDemora());
-//            String costo = (String) String.valueOf(pedido.getItemPedido().calcularCosto());
-//
-//            jLabelHora1.setText(hora);
-//            jLabelMinutos1.setText(minuto);
-//            jLabelDemora1.setText(demora);
-//            jLabelCosto1.setText(costo);    
-//        }
-//        if (pos == 3) {
-//        jLabelNombre2.setText(pedido.getNombreCliente());
-//            String hora = (String) String.valueOf(pedido.getHoraPedido());
-//            String minuto = (String) String.valueOf(pedido.getMinutosPedido());
-//            String demora = (String) String.valueOf(pedido.getMinutosDemora());
-//            String costo = (String) String.valueOf(pedido.getItemPedido().calcularCosto());
-//
-//            jLabelHora2.setText(hora);
-//            jLabelMinutos2.setText(minuto);
-//            jLabelDemora2.setText(demora);
-//            jLabelCosto2.setText(costo);
-//
-//    }
-//        if (pos == 4) {
-//        jLabelNombre3.setText(pedido.getNombreCliente());
-//            String hora = (String) String.valueOf(pedido.getHoraPedido());
-//            String minuto = (String) String.valueOf(pedido.getMinutosPedido());
-//            String demora = (String) String.valueOf(pedido.getMinutosDemora());
-//            String costo = (String) String.valueOf(pedido.getItemPedido().calcularCosto());
-//
-//            jLabelHora3.setText(hora);
-//            jLabelMinutos3.setText(minuto);
-//            jLabelDemora3.setText(demora);
-//            jLabelCosto3.setText(costo);
-//
-//    }
-//        if (pos == 5) {
-//        jLabelNombre4.setText(pedido.getNombreCliente());
-//            String hora = (String) String.valueOf(pedido.getHoraPedido());
-//            String minuto = (String) String.valueOf(pedido.getMinutosPedido());
-//            String demora = (String) String.valueOf(pedido.getMinutosDemora());
-//            String costo = (String) String.valueOf(pedido.getItemPedido().calcularCosto());
-//
-//            jLabelHora4.setText(hora);
-//            jLabelMinutos4.setText(minuto);
-//            jLabelDemora4.setText(demora);
-//            jLabelCosto4.setText(costo);
-//
-//    }
-        }
+        modelo.agregarPedido(pedido);
+    }
 
     private void iniciarTimer() {
         TimerTask task = new TimerTask() {

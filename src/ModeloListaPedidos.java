@@ -15,20 +15,20 @@ import javax.swing.table.TableModel;
  * @author User
  */
 public class ModeloListaPedidos implements TableModel {
-
+    
     private List<Pedido> pedidos = new ArrayList<Pedido>();
     private List<TableModelListener> listener = new ArrayList<TableModelListener>();
-
+    
     @Override
     public int getRowCount() {
         return pedidos.size(); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public int getColumnCount() {
         return 5; //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public String getColumnName(int columnIndex) {
         String nombreColumna = "";
@@ -43,20 +43,20 @@ public class ModeloListaPedidos implements TableModel {
         } else if (columnIndex == 4) {
             nombreColumna = "Costo";
         }
-
+        
         return nombreColumna;
     }
-
+    
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         return String.class;
     }
-
+    
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return false;
     }
-
+    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Pedido pedido = pedidos.get(rowIndex);
@@ -73,32 +73,33 @@ public class ModeloListaPedidos implements TableModel {
             String demora = (String) String.valueOf(pedido.getMinutosDemora());
             valor = demora;
         } else if (columnIndex == 4) {
-            String costo = (String) String.valueOf(pedido.getItemPedido().calcularCosto());
+            valor = (String) String.valueOf(pedido.getItemPedido().calcularCosto());
         }
-        return pedido;
+        return valor;
     }
-
+    
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public void addTableModelListener(TableModelListener l) {
-    this.listener.add(l);
+        this.listener.add(l);
     }
-
+    
     @Override
     public void removeTableModelListener(TableModelListener l) {
         this.listener.remove(l);
     }
-    public void agregarPedido (Pedido pedido) {
+
+    public void agregarPedido(Pedido pedido) {
         this.pedidos.add(pedido);
         
-        TableModelEvent evento =  new TableModelEvent(this, this.pedidos.size() - 1, this.pedidos.size() - 1, TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
-    for (TableModelListener listener : this.listener) {
-        listener.tableChanged(evento);
-    }
+        TableModelEvent evento = new TableModelEvent(this, this.pedidos.size() - 1, this.pedidos.size() - 1, TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
+        for (TableModelListener listener : this.listener) {
+            listener.tableChanged(evento);
+        }
     }
     
 }
