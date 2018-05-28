@@ -91,6 +91,7 @@ public class GUIListaPedidos extends javax.swing.JFrame {
         jButtonAgregarPedido = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        clickBotonLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,23 +115,34 @@ public class GUIListaPedidos extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tabla);
 
+        clickBotonLimpiar.setText("Limpiar");
+        clickBotonLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clickBotonLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
             .addGroup(layout.createSequentialGroup()
-                .addGap(205, 205, 205)
+                .addGap(100, 100, 100)
                 .addComponent(jButtonAgregarPedido)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+                .addGap(100, 100, 100)
+                .addComponent(clickBotonLimpiar)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonAgregarPedido)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAgregarPedido)
+                    .addComponent(clickBotonLimpiar))
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -168,6 +180,10 @@ public class GUIListaPedidos extends javax.swing.JFrame {
 //                    }
             Toolkit.getDefaultToolkit().beep();
     }//GEN-LAST:event_jButtonAgregarPedidoActionclock
+
+    private void clickBotonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickBotonLimpiarActionPerformed
+        modelo.limpiarPedidos();
+    }//GEN-LAST:event_clickBotonLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,6 +226,7 @@ public class GUIListaPedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton clickBotonLimpiar;
     private javax.swing.JButton jButtonAgregarPedido;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tabla;

@@ -2,6 +2,7 @@
 import java.awt.print.Printable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -71,5 +72,40 @@ public class Pedido {
         Date fechaPedido = calendar.getTime();
         return fechaPedido.before(ahora);
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.nombreCliente);
+        hash = 61 * hash + this.horaPedido;
+        hash = 61 * hash + this.minutosPedido;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pedido other = (Pedido) obj;
+        if (this.horaPedido != other.horaPedido) {
+            return false;
+        }
+        if (this.minutosPedido != other.minutosPedido) {
+            return false;
+        }
+        if (!Objects.equals(this.nombreCliente, other.nombreCliente)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 
 }
