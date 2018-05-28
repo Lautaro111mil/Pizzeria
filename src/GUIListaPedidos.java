@@ -27,8 +27,8 @@ public class GUIListaPedidos extends javax.swing.JFrame {
      */
     public GUIListaPedidos() {
         initComponents();
-        iniciarTimer();
         inicializarTabla();
+        iniciarTimer();
     }
 
     public void agregarPedido(Pedido pedido) {
@@ -40,11 +40,11 @@ public class GUIListaPedidos extends javax.swing.JFrame {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                Toolkit.getDefaultToolkit().beep();
+                tabla.repaint();
            }
         };
         Timer timer = new Timer();
-        timer.schedule(task, 0, 30000);
+        timer.schedule(task, 0, 15000);
     }
 
     public void datosDelPedido(Pedido pedido) {
