@@ -20,6 +20,7 @@ import java.awt.Toolkit;
 public class GUIListaPedidos extends javax.swing.JFrame {
 
     private List<Pedido> pedidos = new ArrayList<>();
+    private ModeloListaPedidos modelo;
 
     /**
      * Creates new form GUIListaPedidos
@@ -274,7 +275,7 @@ public class GUIListaPedidos extends javax.swing.JFrame {
     }
     
     public void inicializarTabla(){
-        ModeloListaPedidos modelo= new ModeloListaPedidos();
+        modelo= new ModeloListaPedidos();
         tabla.setModel(modelo);
     }
 
