@@ -31,7 +31,7 @@ public class Pedido {
     }
 
     public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora, ItemPedido itemPedido) throws Exception {
-        if (nombreCliente.isEmpty() || nombreCliente == null || nombreCliente.contains("0") || nombreCliente.contains("1") || nombreCliente.contains("2") || nombreCliente.contains("3") || nombreCliente.contains("4") || nombreCliente.contains("5") || nombreCliente.contains("6") || nombreCliente.contains("7") || nombreCliente.contains("8") || nombreCliente.contains("9")) {
+        if (nombreCliente.isEmpty() || nombreCliente == null) {
             throw new Exception("Ingrese un nombre de cliente válido");
         }
         this.nombreCliente = nombreCliente;

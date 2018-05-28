@@ -39,36 +39,8 @@ public class GUIListaPedidos extends javax.swing.JFrame {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-//                for (int i = 0; i < pedidos.size(); i++) {
-//                    if (pedidos.get(i).estaAtrasado(new Date())) {
-//                        if (i == 0) {
-//                            jLabelHora.setForeground(Color.red);
-//                            jLabelMinutos.setForeground(Color.red);
-//                            
-//                        }
-//                        if (i == 1) {
-//                            jLabelHora1.setForeground(Color.red);
-//                            jLabelMinutos1.setForeground(Color.red);
-//                        }
-//                        if (i == 2) {
-//                            jLabelHora2.setForeground(Color.red);
-//                            jLabelMinutos2.setForeground(Color.red);
-//                            } 
-//                        if (i == 3)  {
-//                            jLabelHora3.setForeground(Color.red);
-//                            jLabelMinutos3.setForeground(Color.red);
-//                        }
-//                        if (i == 4) {
-//                            jLabelHora4.setForeground(Color.red);
-//                            jLabelMinutos4.setForeground(Color.red);
-//
-//                    }
-//                }
-//                    }
                 Toolkit.getDefaultToolkit().beep();
-                
-                //To change body of generated methods, choose Tools | Templates.
-            }
+           }
         };
         Timer timer = new Timer();
         timer.schedule(task, 0, 30000);

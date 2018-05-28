@@ -360,7 +360,17 @@ public class GUIPizzeria extends javax.swing.JFrame {
         String nombreIngresado = jTextFieldNombre.getText();
         nombreIngresado = nombreIngresado.trim();
 
-        if (nombreIngresado.isEmpty()) {
+        boolean nombreEsNumero = false;
+        try {
+            
+            Long nombreEnNumero = Long.valueOf(nombreIngresado);
+            nombreEsNumero = true;
+            
+        } catch (Exception e) {
+            nombreEsNumero = false;
+        }
+        
+        if (nombreIngresado.isEmpty() || nombreEsNumero) {
             jLabelErrorNombre.setText("Necesita ingresar un nombre");
         } else {
 
