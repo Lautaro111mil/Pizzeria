@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
@@ -91,5 +92,13 @@ public class ModeloListaPedidos implements TableModel {
     public void removeTableModelListener(TableModelListener l) {
         this.listener.remove(l);
     }
-
+    public void agregarPedido (Pedido pedido) {
+        this.pedidos.add(pedido);
+        
+        TableModelEvent evento =  new TableModelEvent(this, this.pedidos.size() - 1, this.pedidos.size() - 1, TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
+    for (TableModelListener listener : this.listener) {
+        listener.tableChanged(evento);
+    }
+    }
+    
 }
