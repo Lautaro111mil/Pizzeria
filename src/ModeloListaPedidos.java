@@ -1,5 +1,7 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import javax.swing.event.TableModelEvent;
@@ -101,6 +103,20 @@ public class ModeloListaPedidos implements TableModel {
         for (TableModelListener listener : this.listener) {
             listener.tableChanged(evento);
         }
+        
+        this.pedidos.sort(new Comparator<Pedido>() {
+            @Override
+            public int compare(Pedido o1, Pedido o2) {
+                return o1.getHoraEntrega().compareTo(o2.getHoraEntrega());
+            }
+            
+        });
+        
+        TableModelEvent eventoActualizacion = new TableModelEvent(this, 0, this.pedidos.size() -1, TableModelEvent.ALL_COLUMNS, TableModelEvent.UPDATE);
+         for (TableModelListener listener : this.listener) {
+            listener.tableChanged(eventoActualizacion);
+        }
+       
     }
 
     public void limpiarPedidos() {
@@ -133,7 +149,5 @@ public class ModeloListaPedidos implements TableModel {
     public List<Pedido> getPedidos() {
         return pedidos;
     }
-    
-    
 
 }
