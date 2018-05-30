@@ -562,8 +562,9 @@ public class GUIPizzeria extends javax.swing.JFrame {
                 jLabelErrorHoraMinuto.setText("Tiene que ingresar hora o minutos válidos");
             }
             listaItemPedidos.add(itemPedido);
+            agregarPizza(itemPedido);
     }//GEN-LAST:event_jButtonAgregarActionPerformedClick
-    }
+}
     /**
      * @param args the command line arguments
      */
@@ -665,5 +666,9 @@ public class GUIPizzeria extends javax.swing.JFrame {
         modelo= new ModeloPizzas();
         tabla.setModel(modelo);
         }
+    
+    public void agregarPizza(ItemPedido itemPedido){
+        modelo.agregarPizzas(itemPedido);
+    }
 
 }

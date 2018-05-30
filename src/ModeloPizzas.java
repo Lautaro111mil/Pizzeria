@@ -75,7 +75,7 @@ public class ModeloPizzas implements TableModel{
             String tipoString = String.valueOf(pizzas.getPizza().getTipo());
             valor = tipoString;
         } else if (columnIndex == 3) {
-            String variedadString = (String) String.valueOf(pizzas.getPizza().getVariedad());
+            String variedadString = String.valueOf(pizzas.getPizza().getVariedad());
             valor = variedadString;
         } else if (columnIndex == 4) {
             valor = pizzas.getObservacion();

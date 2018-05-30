@@ -1,7 +1,10 @@
 
 import java.awt.print.Printable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
 /*
@@ -19,7 +22,7 @@ public class Pedido {
     private int horaPedido;
     private int minutosPedido;
     private int minutosDemora;
-    private ItemPedido itemPedido;
+    private List<ItemPedido> itemsPedidos = new ArrayList();
     private boolean fueEntregado;
     private Date horaEntrega;
 
@@ -42,7 +45,7 @@ public class Pedido {
         }
         this.minutosPedido = minutosPedido;
         this.minutosDemora = minutosDemora;
-        this.itemPedido = itemPedido;
+        itemsPedidos.add(itemPedido);
         
         Calendar calendar = Calendar.getInstance();
         calendar.set(calendar.HOUR_OF_DAY, horaPedido);
@@ -67,9 +70,11 @@ public class Pedido {
         return minutosPedido;
     }
 
-    public ItemPedido getItemPedido() {
-        return itemPedido;
+    public List<ItemPedido> getItemsPedidos() {
+        return itemsPedidos;
     }
+
+    
 
     public boolean estaAtrasado(Date ahora) {
         return horaEntrega.before(ahora);
@@ -112,5 +117,11 @@ public class Pedido {
         return horaEntrega;
     }
   
-    
+    public double calcularCostoTotal(){
+        double costoTotal=0;
+        for (ItemPedido item : itemsPedidos){
+            costoTotal+=item.calcularCosto();
+    }
+        return costoTotal;
+    }
 }
