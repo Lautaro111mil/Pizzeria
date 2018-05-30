@@ -110,7 +110,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabelVariedad1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabelObservacion" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelObservacion" min="-2" pref="65" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -164,9 +164,9 @@
                   <Component id="jLabelTamaño1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelTipo1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelVariedad1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelObservacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelObservacion" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="233" max="32767" attributes="0"/>
+              <EmptySpace pref="219" max="32767" attributes="0"/>
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -400,6 +400,7 @@
     <Component class="javax.swing.JLabel" name="jLabelObservacion">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel15"/>
+        <Property name="autoscrolls" type="boolean" value="true"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

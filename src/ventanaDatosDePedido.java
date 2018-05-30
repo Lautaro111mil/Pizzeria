@@ -153,6 +153,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         jLabel14.setText("Observaciones");
 
         jLabelObservacion.setText("jLabel15");
+        jLabelObservacion.setAutoscrolls(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -217,7 +218,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabelVariedad1)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jLabelObservacion)))))
+                                            .addComponent(jLabelObservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGap(0, 14, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(16, 16, 16)
@@ -257,8 +258,8 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                     .addComponent(jLabelTamaño1)
                     .addComponent(jLabelTipo1)
                     .addComponent(jLabelVariedad1)
-                    .addComponent(jLabelObservacion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
+                    .addComponent(jLabelObservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

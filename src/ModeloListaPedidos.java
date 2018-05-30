@@ -103,27 +103,26 @@ public class ModeloListaPedidos implements TableModel {
         for (TableModelListener listener : this.listener) {
             listener.tableChanged(evento);
         }
-        
+
         this.pedidos.sort(new Comparator<Pedido>() {
             @Override
             public int compare(Pedido o1, Pedido o2) {
                 return o1.getHoraEntrega().compareTo(o2.getHoraEntrega());
             }
-            
+
         });
-        
-        TableModelEvent eventoActualizacion = new TableModelEvent(this, 0, this.pedidos.size() -1, TableModelEvent.ALL_COLUMNS, TableModelEvent.UPDATE);
-         for (TableModelListener listener : this.listener) {
-            listener.tableChanged(eventoActualizacion);
+
+        TableModelEvent eventoActualizar = new TableModelEvent(this, this.pedidos.size() - 1, this.pedidos.size() - 1, TableModelEvent.ALL_COLUMNS, TableModelEvent.UPDATE);
+        for (TableModelListener listener : this.listener) {
+            listener.tableChanged(eventoActualizar);
         }
-       
     }
 
     public void limpiarPedidos() {
 
         List<Integer> posicionesAtrasadas = new ArrayList<Integer>();
         List<Pedido> pedidosABorrar = new ArrayList<Pedido>();
-        
+
         for (int i = 0; i < this.pedidos.size(); i++) {
 
             Pedido unPedido = this.pedidos.get(i);
@@ -134,9 +133,9 @@ public class ModeloListaPedidos implements TableModel {
         }
 
         this.pedidos.removeAll(pedidosABorrar);
-        
+
         for (Integer posicion : posicionesAtrasadas) {
-                        
+
             TableModelEvent evento = new TableModelEvent(this, posicion, posicion, TableModelEvent.ALL_COLUMNS, TableModelEvent.DELETE);
             for (TableModelListener listener : this.listener) {
                 listener.tableChanged(evento);

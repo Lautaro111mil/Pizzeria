@@ -1,6 +1,8 @@
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,16 +16,20 @@ import java.util.Date;
 public class GUIPizzeria extends javax.swing.JFrame {
 
     private GUIListaPedidos pantallaListado;
+    private List<ItemPedido> listaItemPedidos = new ArrayList<ItemPedido>();
+    
+    private ModeloPizzas modelo;
 
     /**
      * Creates new form GUIPizzeria
      */
     public GUIPizzeria() {
         initComponents();
+        inicializarTabla();
         configurarHora();
         setTitle("Agregar Pedido");
         this.setLocationRelativeTo(null);
-        jTextArea1.setLineWrap(true);
+        jTextFieldObservacion.setLineWrap(true);
     }
     
     /**
@@ -58,10 +64,12 @@ public class GUIPizzeria extends javax.swing.JFrame {
         jTextFieldCantidad = new javax.swing.JTextField();
         jLabelErrorHoraMinuto = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextFieldObservacion = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextFieldObservacion = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+        jButtonAgregar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -141,14 +149,6 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
         jLabel8.setText("Observacion");
 
-        jTextFieldObservacion.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextFieldObservacion.setAutoscrolls(false);
-        jTextFieldObservacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldObservacionActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("Cancelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,9 +156,29 @@ public class GUIPizzeria extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextFieldObservacion.setColumns(20);
+        jTextFieldObservacion.setRows(5);
+        jScrollPane1.setViewportView(jTextFieldObservacion);
+
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tabla);
+
+        jButtonAgregar.setText("Agregar");
+        jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgregarActionPerformedClick(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,7 +208,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
                         .addComponent(jTextFieldMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelErrorDemora, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,43 +218,47 @@ public class GUIPizzeria extends javax.swing.JFrame {
                             .addComponent(jLabelErrorHoraMinuto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addContainerGap())
                         .addComponent(jLabelErrorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(147, 147, 147))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jTextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBoxTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBoxVAriedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
-                            .addComponent(jButtonOK)))
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabelErrorCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(jButtonOK))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelErrorCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel8)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldObservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonAgregar)
+                        .addGap(4, 4, 4)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(147, 147, 147))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jTextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jComboBoxTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxVAriedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,20 +298,23 @@ public class GUIPizzeria extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelErrorCantidad)
-                                .addGap(12, 12, 12)
+                            .addComponent(jLabelErrorCantidad)
+                            .addComponent(jButtonAgregar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel8)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextFieldObservacion))
-                        .addGap(0, 0, 0)
+                                .addGap(36, 36, 36)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonOK)
                             .addComponent(jButton1))
                         .addGap(10, 10, 10))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(12, Short.MAX_VALUE))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -299,12 +326,155 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
     private void jButtonOKClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKClick
         
+//        jLabelErrorCantidad.setText("");
+//        jLabelErrorDemora.setText("");
+//        jLabelErrorHoraMinuto.setText("");
+//        jLabelErrorNombre.setText("");
+//        
+//        ventanaDatosDePedido ventana = new ventanaDatosDePedido();
+//        Pizza pizza = new Pizza();
+//        if (jComboBoxTamaño.getSelectedItem().equals("Grande (8)")) {
+//            pizza.setTamaño(8);
+//        }
+//        if (jComboBoxTamaño.getSelectedItem().equals("Extra grande (10)")) {
+//            pizza.setTamaño(10);
+//        }
+//        if (jComboBoxTamaño.getSelectedItem().equals("Gigante (12)")) {
+//            pizza.setTamaño(12);
+//        }
+//
+//        if (jComboBoxTipo.getSelectedItem().equals("Piedra")) {
+//            pizza.setTipo(Tipo.PIEDRA);
+//        }
+//        if (jComboBoxTipo.getSelectedItem().equals("Parrilla")) {
+//            pizza.setTipo(Tipo.PARRILLA);
+//        }
+//        if (jComboBoxTipo.getSelectedItem().equals("Molde")) {
+//            pizza.setTipo(Tipo.MOLDE);
+//        }
+//
+//        if (jComboBoxVAriedad.getSelectedItem().equals("Muzzarella")) {
+//            pizza.setVariedad(muzzarella);
+//        }
+//        if (jComboBoxVAriedad.getSelectedItem().equals("Jamon y morrones")) {
+//            pizza.setVariedad(jamonYMorrones);
+//        }
+//        if (jComboBoxVAriedad.getSelectedItem().equals("Fugazzeta")) {
+//            pizza.setVariedad(fugazzeta);
+//        }
+//        if (jComboBoxVAriedad.getSelectedItem().equals("Cuatro quesos")) {
+//            pizza.setVariedad(cuatroQuesos);
+//        }
+//        if (jComboBoxVAriedad.getSelectedItem().equals("Napolitana")) {
+//            pizza.setVariedad(napolitana);
+//        }
+//
+//        try {
+//
+//            long cantidad = Long.valueOf(jTextFieldCantidad.getText());
+//
+//        } catch (Exception e) {
+//            jLabelErrorCantidad.setText("Agregue un número válido");
+//        }
+//
+//        long cantidad = Long.valueOf(jTextFieldCantidad.getText());
+//        if (cantidad <= 0 || jTextFieldCantidad.getText().isEmpty()) {
+//            jLabelErrorCantidad.setText("La cantidad tiene que ser igual mayor a 1");
+//
+//        }
+//        ItemPedido itemPedido = new ItemPedido(pizza, cantidad);
+//
+//        String nombreIngresado = jTextFieldNombre.getText();
+//        nombreIngresado = nombreIngresado.trim();
+//
+//        boolean nombreEsNumero = false;
+//        try {
+//            
+//            Long nombreEnNumero = Long.valueOf(nombreIngresado);
+//            nombreEsNumero = true;
+//            
+//        } catch (Exception e) {
+//            nombreEsNumero = false;
+//        }
+//        
+//        if (nombreIngresado.isEmpty() || nombreEsNumero) {
+//            jLabelErrorNombre.setText("Necesita ingresar un nombre");
+//        } else {
+//
+//            ventana.jLabelVentana.setText(jTextFieldNombre.getText());
+//
+//            ventana.jLabelHora.setText(jTextFieldHora.getText());
+//            ventana.jLabelMinutos.setText(jTextFieldMinuto.getText());
+//
+//            String demoraIngresada = jTextFieldDemora.getText();
+//            demoraIngresada = demoraIngresada.trim();
+//            String cantidadIngresada = jTextFieldCantidad.getText().trim();
+//
+//            try {
+//                int demoraEnNumero = Integer.valueOf(demoraIngresada);
+//                long cantidadNumero = Long.valueOf(cantidadIngresada);
+//                
+//                ventana.jLabelDemora.setText(jTextFieldDemora.getText());
+//            try {
+//                int horaNumero = Integer.valueOf(jTextFieldHora.getText());
+//                int minutoNumero = Integer.valueOf(jTextFieldMinuto.getText());
+//                
+//                 // Darle el Pedido creado a la pantalla anterior
+//            
+//            Pedido pedido =new Pedido(jTextFieldNombre.getText(), horaNumero, minutoNumero, demoraEnNumero, itemPedido);
+//            pantallaListado.agregarPedido(pedido);
+//            
+//            ventana.setVisible(true);
+//            
+//
+//            } catch (Exception e) {
+//                jLabelErrorHoraMinuto.setText("Tiene que ingresar hora o minutos válidos");
+//            }
+//            double CostoEnNumero = itemPedido.calcularCosto();
+//            String costo = (String) String.valueOf(CostoEnNumero);
+//            ventana.jLabelCosto.setText(costo);
+//            String tamaño = (String) jComboBoxTamaño.getSelectedItem();
+//            ventana.jLabelTamaño1.setText(tamaño);
+//            String tipo = (String) jComboBoxTipo.getSelectedItem();
+//            ventana.jLabelTipo1.setText(tipo);
+//            String variedad = (String) jComboBoxVAriedad.getSelectedItem();
+//            ventana.jLabelVariedad1.setText(variedad);
+//            ventana.jLabelCantidad1.setText(cantidadIngresada);
+//            ventana.jLabelObservacion.setText(jTextFieldObservacion.getText());
+//            itemPedido.setObservacion(jTextFieldObservacion.getText());
+//            
+//            dispose();
+//                        
+//            } catch (Exception e) {
+//                    jLabelErrorDemora.setText("Tiene que ingresar demora valida");
+//            }
+//            
+//
+//        }
+    }//GEN-LAST:event_jButtonOKClick
+
+    private void jTextFieldMinutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMinutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldMinutoActionPerformed
+
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
+
+    private void jTextFieldHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldHoraActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonAgregarActionPerformedClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformedClick
         jLabelErrorCantidad.setText("");
         jLabelErrorDemora.setText("");
         jLabelErrorHoraMinuto.setText("");
         jLabelErrorNombre.setText("");
         
-        ventanaDatosDePedido ventana = new ventanaDatosDePedido();
         Pizza pizza = new Pizza();
         if (jComboBoxTamaño.getSelectedItem().equals("Grande (8)")) {
             pizza.setTamaño(8);
@@ -374,78 +544,26 @@ public class GUIPizzeria extends javax.swing.JFrame {
             jLabelErrorNombre.setText("Necesita ingresar un nombre");
         } else {
 
-            ventana.jLabelVentana.setText(jTextFieldNombre.getText());
-
-            ventana.jLabelHora.setText(jTextFieldHora.getText());
-            ventana.jLabelMinutos.setText(jTextFieldMinuto.getText());
-
+            
             String demoraIngresada = jTextFieldDemora.getText();
             demoraIngresada = demoraIngresada.trim();
             String cantidadIngresada = jTextFieldCantidad.getText().trim();
-
-            try {
-                int demoraEnNumero = Integer.valueOf(demoraIngresada);
-                long cantidadNumero = Long.valueOf(cantidadIngresada);
-                
-                ventana.jLabelDemora.setText(jTextFieldDemora.getText());
+                                           
             try {
                 int horaNumero = Integer.valueOf(jTextFieldHora.getText());
                 int minutoNumero = Integer.valueOf(jTextFieldMinuto.getText());
+                int demoraEnNumero = Integer.valueOf(demoraIngresada);
+                long cantidadNumero = Long.valueOf(cantidadIngresada);
                 
                  // Darle el Pedido creado a la pantalla anterior
             
-            Pedido pedido =new Pedido(jTextFieldNombre.getText(), horaNumero, minutoNumero, demoraEnNumero, itemPedido);
-            pantallaListado.agregarPedido(pedido);
-            
-            ventana.setVisible(true);
-            
-
+                
             } catch (Exception e) {
                 jLabelErrorHoraMinuto.setText("Tiene que ingresar hora o minutos válidos");
             }
-            double CostoEnNumero = itemPedido.calcularCosto();
-            String costo = (String) String.valueOf(CostoEnNumero);
-            ventana.jLabelCosto.setText(costo);
-            String tamaño = (String) jComboBoxTamaño.getSelectedItem();
-            ventana.jLabelTamaño1.setText(tamaño);
-            String tipo = (String) jComboBoxTipo.getSelectedItem();
-            ventana.jLabelTipo1.setText(tipo);
-            String variedad = (String) jComboBoxVAriedad.getSelectedItem();
-            ventana.jLabelVariedad1.setText(variedad);
-            ventana.jLabelCantidad1.setText(cantidadIngresada);
-            ventana.jLabelObservacion.setText(jTextFieldObservacion.getText());
-            itemPedido.setObservacion(jTextFieldObservacion.getText());
-            
-            dispose();
-                        
-            } catch (Exception e) {
-                    jLabelErrorDemora.setText("Tiene que ingresar demora valida");
-            }
-            
-
-        }
-    }//GEN-LAST:event_jButtonOKClick
-
-    private void jTextFieldMinutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMinutoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldMinutoActionPerformed
-
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
-
-    private void jTextFieldHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHoraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldHoraActionPerformed
-
-    private void jTextFieldObservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObservacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldObservacionActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+            listaItemPedidos.add(itemPedido);
+    }//GEN-LAST:event_jButtonAgregarActionPerformedClick
+    }
     /**
      * @param args the command line arguments
      */
@@ -490,6 +608,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAgregar;
     private javax.swing.JButton jButtonOK;
     private javax.swing.JComboBox<String> jComboBoxTamaño;
     private javax.swing.JComboBox<String> jComboBoxTipo;
@@ -508,14 +627,15 @@ public class GUIPizzeria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelErrorHoraMinuto;
     private javax.swing.JLabel jLabelErrorNombre;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldCantidad;
     private javax.swing.JTextField jTextFieldDemora;
     private javax.swing.JTextField jTextFieldHora;
     private javax.swing.JTextField jTextFieldMinuto;
     private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldObservacion;
+    private javax.swing.JTextArea jTextFieldObservacion;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 
     private void configurarHora() {
@@ -541,5 +661,9 @@ public class GUIPizzeria extends javax.swing.JFrame {
     public void setPantallaListado(GUIListaPedidos pantallaListado) {
         this.pantallaListado = pantallaListado;
     }
+    public void inicializarTabla(){
+        modelo= new ModeloPizzas();
+        tabla.setModel(modelo);
+        }
 
 }
