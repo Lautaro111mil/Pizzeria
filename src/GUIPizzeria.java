@@ -331,7 +331,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
 //        jLabelErrorHoraMinuto.setText("");
 //        jLabelErrorNombre.setText("");
 //        
-//        ventanaDatosDePedido ventana = new ventanaDatosDePedido();
+        ventanaDatosDePedido ventana = new ventanaDatosDePedido();
 //        Pizza pizza = new Pizza();
 //        if (jComboBoxTamaño.getSelectedItem().equals("Grande (8)")) {
 //            pizza.setTamaño(8);
@@ -424,7 +424,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
 //            Pedido pedido =new Pedido(jTextFieldNombre.getText(), horaNumero, minutoNumero, demoraEnNumero, itemPedido);
 //            pantallaListado.agregarPedido(pedido);
 //            
-//            ventana.setVisible(true);
+            ventana.setVisible(true);
 //            
 //
 //            } catch (Exception e) {
@@ -432,7 +432,8 @@ public class GUIPizzeria extends javax.swing.JFrame {
 //            }
 //            double CostoEnNumero = itemPedido.calcularCosto();
 //            String costo = (String) String.valueOf(CostoEnNumero);
-//            ventana.jLabelCosto.setText(costo);
+//            listaItemPedidos.
+//            ventana.jLabelCosto.setText(calcular);
 //            String tamaño = (String) jComboBoxTamaño.getSelectedItem();
 //            ventana.jLabelTamaño1.setText(tamaño);
 //            String tipo = (String) jComboBoxTipo.getSelectedItem();
@@ -451,6 +452,11 @@ public class GUIPizzeria extends javax.swing.JFrame {
 //            
 //
 //        }
+    int horaS=Integer.valueOf(jTextFieldHora.getText());
+    int minutosS=Integer.valueOf(jTextFieldMinuto.getText());
+    int demoraS=Integer.valueOf(jTextFieldDemora.getText());
+            Pedido pedido=new Pedido(jTextFieldNombre.getText(), horaS,minutosS, demoraS);
+            ventana.jLabelCosto.setText();
     }//GEN-LAST:event_jButtonOKClick
 
     private void jTextFieldMinutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMinutoActionPerformed
@@ -563,6 +569,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
             }
             listaItemPedidos.add(itemPedido);
             agregarPizza(itemPedido);
+            
     }//GEN-LAST:event_jButtonAgregarActionPerformedClick
 }
     /**

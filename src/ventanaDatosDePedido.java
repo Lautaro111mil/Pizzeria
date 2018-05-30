@@ -16,16 +16,18 @@ import java.util.logging.Logger;
  * @author User
  */
 public class ventanaDatosDePedido extends javax.swing.JFrame {
-
+    
+    private ModeloPizzas modelo;
     /**
      * Creates new form ventanaDatosDePedido
      */
     public ventanaDatosDePedido() {
         initComponents();
         this.setLocationRelativeTo(null);
+        inicializarTabla();
     }
+ 
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,6 +39,8 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
         jLabelVentana = new javax.swing.JLabel();
         jLabelHora = new javax.swing.JLabel();
         jLabelDemora = new javax.swing.JLabel();
@@ -49,22 +53,25 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabelTamaño1 = new javax.swing.JLabel();
-        jLabelTipo1 = new javax.swing.JLabel();
-        jLabelVariedad1 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabelCantidad1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jButtonImprimir = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        jLabelObservacion = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         jLabel2.setText("jLabel2");
+
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -121,22 +128,6 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("$");
 
-        jLabel9.setText("Tamaño");
-
-        jLabel10.setText("Tipo");
-
-        jLabel11.setText("Variedad");
-
-        jLabelTamaño1.setText("jLabel12");
-
-        jLabelTipo1.setText("jLabel12");
-
-        jLabelVariedad1.setText("jLabel12");
-
-        jLabel12.setText("Cantidad");
-
-        jLabelCantidad1.setText("jLabel13");
-
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 153, 204));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -150,11 +141,6 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setText("Observaciones");
-
-        jLabelObservacion.setText("jLabel15");
-        jLabelObservacion.setAutoscrolls(true);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,69 +149,43 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabelHora)
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel13)
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabelMinutos)
-                        .addGap(96, 96, 96))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(37, 37, 37)
-                                    .addComponent(jLabelVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(42, 42, 42)
-                                    .addComponent(jLabelDemora)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel7)))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(139, 139, 139)
-                                    .addComponent(jLabel8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabelCosto))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(140, 140, 140)
-                                    .addComponent(jLabel6))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabelCantidad1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabelTamaño1))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel12)
-                                            .addGap(32, 32, 32)
-                                            .addComponent(jLabel9)))
-                                    .addGap(35, 35, 35)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabelTipo1))
-                                    .addGap(38, 38, 38)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel11)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel14))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabelVariedad1)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabelObservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGap(0, 14, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(jButtonCerrar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonImprimir)
-                            .addGap(34, 34, 34)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(139, 139, 139)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelCosto))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(140, 140, 140)
+                                .addComponent(jLabel6)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(50, 50, 50)
+                                .addComponent(jLabelHora)
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabel13)
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabelMinutos))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabelVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(42, 42, 42)
+                                .addComponent(jLabelDemora)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7)))
+                        .addContainerGap(44, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jButtonCerrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonImprimir)
+                        .addGap(34, 34, 34))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,21 +205,7 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabelDemora)
                     .addComponent(jLabel7))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCantidad1)
-                    .addComponent(jLabelTamaño1)
-                    .addComponent(jLabelTipo1)
-                    .addComponent(jLabelVariedad1)
-                    .addComponent(jLabelObservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -335,16 +281,16 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
             }
         });
     }
+    public void inicializarTabla(){          
+        modelo= new ModeloPizzas();
+        tabla.setModel(modelo);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCerrar;
     public javax.swing.JButton jButtonImprimir;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -352,16 +298,12 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    public javax.swing.JLabel jLabelCantidad1;
     public javax.swing.JLabel jLabelCosto;
     public javax.swing.JLabel jLabelDemora;
     public javax.swing.JLabel jLabelHora;
     public javax.swing.JLabel jLabelMinutos;
-    public javax.swing.JLabel jLabelObservacion;
-    public javax.swing.JLabel jLabelTamaño1;
-    public javax.swing.JLabel jLabelTipo1;
-    public javax.swing.JLabel jLabelVariedad1;
     public javax.swing.JLabel jLabelVentana;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }

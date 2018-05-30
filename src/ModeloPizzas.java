@@ -30,7 +30,7 @@ public class ModeloPizzas implements TableModel{
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 6;
     }
 
     @Override
@@ -45,7 +45,9 @@ public class ModeloPizzas implements TableModel{
         } else if (columnIndex == 3) {
             nombreColumna = "Variedad";
         } else if (columnIndex == 4) {
-            nombreColumna = "Observacion";
+            nombreColumna = "Observación";
+        } else if (columnIndex==5){
+            nombreColumna= "Costo";
         }
 
         return nombreColumna;
@@ -79,6 +81,9 @@ public class ModeloPizzas implements TableModel{
             valor = variedadString;
         } else if (columnIndex == 4) {
             valor = pizzas.getObservacion();
+        }else if( columnIndex==5){
+            String costoStrin= String.valueOf(pizzas.calcularCosto());
+            valor=costoStrin;
         }
         return valor;
     

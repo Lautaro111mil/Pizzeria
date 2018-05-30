@@ -33,8 +33,8 @@ public class Pedido {
     public void setFueEntregado(boolean fueEntregado) {
         this.fueEntregado = fueEntregado;
     }
-
-    public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora, ItemPedido itemPedido) throws Exception {
+    
+    public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora) throws Exception {
         if (nombreCliente.isEmpty() || nombreCliente == null) {
             throw new Exception("Ingrese un nombre de cliente válido");
         }
