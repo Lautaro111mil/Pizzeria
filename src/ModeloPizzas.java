@@ -82,7 +82,7 @@ public class ModeloPizzas implements TableModel{
         } else if (columnIndex == 4) {
             valor = pizzas.getObservacion();
         }else if( columnIndex==5){
-            String costoStrin= String.valueOf(pizzas.calcularCosto());
+            String costoStrin= String.valueOf(pizzas.calcularCostoPizzasRepetidas());
             valor=costoStrin;
         }
         return valor;

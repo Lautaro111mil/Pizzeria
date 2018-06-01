@@ -34,7 +34,7 @@ public class Pedido {
         this.fueEntregado = fueEntregado;
     }
     
-    public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora) throws Exception {
+    public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora,ItemPedido itemPedido) throws Exception {
         if (nombreCliente.isEmpty() || nombreCliente == null) {
             throw new Exception("Ingrese un nombre de cliente válido");
         }
@@ -120,7 +120,7 @@ public class Pedido {
     public double calcularCostoTotal(){
         double costoTotal=0;
         for (ItemPedido item : itemsPedidos){
-            costoTotal+=item.calcularCosto();
+            costoTotal+=item.calcularCostoPizzasRepetidas();
     }
         return costoTotal;
     }

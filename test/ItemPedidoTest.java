@@ -41,7 +41,7 @@ public class ItemPedidoTest {
         Variedad variedad = new Variedad("Muzzarella", 50);
         pizza1.setVariedad(variedad);
         ItemPedido item = new ItemPedido(pizza1, 2);
-        double costo = item.calcularCosto();
+        double costo = item.calcularCostoPizzasRepetidas();
         assertEquals(340, costo, 0.001);
     }
 
@@ -53,7 +53,7 @@ public class ItemPedidoTest {
         Variedad variedad = new Variedad("Jamon y morrones", 60);
         pizza1.setVariedad(variedad);
         ItemPedido item = new ItemPedido(pizza1, 3);
-        double costo = item.calcularCosto();
+        double costo = item.calcularCostoPizzasRepetidas();
         assertEquals(630, costo, 0.001);
     }
 
@@ -65,7 +65,7 @@ public class ItemPedidoTest {
         Variedad variedad = new Variedad("Fugazzeta", 40);
         pizza1.setVariedad(variedad);
         ItemPedido item = new ItemPedido(pizza1, 1);
-        double costo = item.calcularCosto();
+        double costo = item.calcularCostoPizzasRepetidas();
         assertEquals(210, costo, 0.001);
     }
 
@@ -77,7 +77,7 @@ public class ItemPedidoTest {
         Variedad variedad = new Variedad("Cuatro quesos", 70);
         pizza1.setVariedad(variedad);
         ItemPedido item = new ItemPedido(pizza1, 4);
-        double costo = item.calcularCosto();
+        double costo = item.calcularCostoPizzasRepetidas();
         assertEquals(760, costo, 0.001);
     }
 

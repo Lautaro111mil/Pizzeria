@@ -49,7 +49,7 @@ public class ItemPedido {
 
     
     
-    public double calcularCosto() {
+    public double calcularCostoPizzasRepetidas() {
         return pizza.calcularCosto() * cantidad;
     }
 
