@@ -151,7 +151,7 @@ public class GUIListaPedidos extends javax.swing.JFrame {
 //                    }
 //                }
 //                    }
-            Toolkit.getDefaultToolkit().beep();
+            
     }//GEN-LAST:event_jButtonAgregarPedidoActionclock
 
     private void clickBotonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickBotonLimpiarActionPerformed
@@ -199,6 +199,7 @@ public class GUIListaPedidos extends javax.swing.JFrame {
        
         ResaltadorDePedidosVencidos resaltador = new ResaltadorDePedidosVencidos (modelo);
         tabla.setDefaultRenderer(String.class, resaltador);
+        Toolkit.getDefaultToolkit().beep();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
