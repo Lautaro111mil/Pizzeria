@@ -53,7 +53,27 @@ public class Pedido {
         calendar.add(calendar.MINUTE, minutosDemora);
         this.horaEntrega = calendar.getTime();
     }
-
+    
+    public Pedido(String nombreCliente, int horaPedido, int minutosPedido, int minutosDemora,List<ItemPedido> pedidos) throws Exception {
+        if (nombreCliente.isEmpty() || nombreCliente == null) {
+            throw new Exception("Ingrese un nombre de cliente válido");
+        }
+        this.nombreCliente = nombreCliente;
+        this.horaPedido = horaPedido;
+        if (minutosDemora <= 0) {
+            throw new Exception("Ingrese una demora válida");
+        }
+        this.minutosPedido = minutosPedido;
+        this.minutosDemora = minutosDemora;
+        itemsPedidos.addAll(pedidos);
+        
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.HOUR_OF_DAY, horaPedido);
+        calendar.set(calendar.MINUTE, minutosPedido);
+        calendar.add(calendar.MINUTE, minutosDemora);
+        this.horaEntrega = calendar.getTime();
+    }
+    
     public String getNombreCliente() {
         return nombreCliente;
     }

@@ -21,6 +21,9 @@ public class ModeloPizzas implements TableModel{
         private List<ItemPedido> pizzas = new ArrayList<ItemPedido>();
         private List<TableModelListener> listener = new ArrayList<TableModelListener>();
 
+    public List<ItemPedido> getPizzas() {
+        return pizzas;
+    }
 
     
     @Override

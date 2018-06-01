@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -340,49 +342,31 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
     private void jButtonOKClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKClick
 
-   
-        ventanaDatosDePedido ventana = new ventanaDatosDePedido();
+        if (!jTextFieldDemora.getText().isEmpty()) {
+            ventanaDatosDePedido ventana = new ventanaDatosDePedido();
 
             ventana.jLabelVentana.setText(jTextFieldNombre.getText());
             ventana.jLabelHora.setText(jTextFieldHora.getText());
             ventana.jLabelMinutos.setText(jTextFieldMinuto.getText());
             String demoraIngresada = jTextFieldDemora.getText();
             demoraIngresada = demoraIngresada.trim();
-            String cantidadIngresada = jTextFieldCantidad.getText().trim();
+            ventana.jLabelDemora.setText(demoraIngresada);
+
+            try {
+                Pedido pedido = new Pedido(jTextFieldNombre.getText(), Integer.valueOf(jTextFieldHora.getText()),
+                Integer.valueOf(jTextFieldMinuto.getText()), Integer.valueOf(jTextFieldDemora.getText().trim()), modelo.getPizzas());
+
+                pantallaListado.agregarPedido(pedido);
+                
+            } catch (Exception e) {
+            }
             
-            Pedido pedido =new Pedido(jTextFieldNombre.getText(), horaNumero, minutoNumero, demoraEnNumero, itemPedido);
-            pantallaListado.agregarPedido(pedido);
-//            
-        ventana.setVisible(true);
-//            
-//
-//            } catch (Exception e) {
-//                jLabelErrorHoraMinuto.setText("Tiene que ingresar hora o minutos válidos");
-//            }
-//            double CostoEnNumero = itemPedido.calcularCosto();
-//            String costo = (String) String.valueOf(CostoEnNumero);
-//            listaItemPedidos.
-//            ventana.jLabelCosto.setText(calcular);
-//            String tamaño = (String) jComboBoxTamaño.getSelectedItem();
-//            ventana.jLabelTamaño1.setText(tamaño);
-//            String tipo = (String) jComboBoxTipo.getSelectedItem();
-//            ventana.jLabelTipo1.setText(tipo);
-//            String variedad = (String) jComboBoxVAriedad.getSelectedItem();
-//            ventana.jLabelVariedad1.setText(variedad);
-//            ventana.jLabelCantidad1.setText(cantidadIngresada);
-//            ventana.jLabelObservacion.setText(jTextFieldObservacion.getText());
-//            itemPedido.setObservacion(jTextFieldObservacion.getText());
-//            
-//            dispose();
-//                        
-//            } catch (Exception e) {
-//                    jLabelErrorDemora.setText("Tiene que ingresar demora valida");
-//            }
-//            
-//
-//        }
-            String costoOtraVentana=String.valueOf(this.costoTotal);
+            ventana.setVisible(true);
+
+            String costoOtraVentana = String.valueOf(this.costoTotal);
             ventana.jLabelCosto.setText(costoOtraVentana);
+            dispose();
+        }
 
     }//GEN-LAST:event_jButtonOKClick
 
@@ -480,19 +464,23 @@ public class GUIPizzeria extends javax.swing.JFrame {
             String demoraIngresada = jTextFieldDemora.getText();
             demoraIngresada = demoraIngresada.trim();
             String cantidadIngresada = jTextFieldCantidad.getText().trim();
-            
+
             costoTotal += itemPedido.calcularCostoPizzasRepetidas();
             String costoTotalString = String.valueOf(costoTotal);
             jLabelCostoP.setText(costoTotalString);
             try {
                 int horaNumero = Integer.valueOf(jTextFieldHora.getText());
                 int minutoNumero = Integer.valueOf(jTextFieldMinuto.getText());
-                int demoraEnNumero = Integer.valueOf(demoraIngresada);
-                long cantidadNumero = Long.valueOf(cantidadIngresada);
+//                long cantidadNumero = Long.valueOf(cantidadIngresada);
 
                 // Darle el Pedido creado a la pantalla anterior
             } catch (Exception e) {
                 jLabelErrorHoraMinuto.setText("Tiene que ingresar hora o minutos válidos");
+            }
+            try {
+                int demoraEnNumero = Integer.valueOf(demoraIngresada);
+            } catch (Exception e) {
+                jLabelErrorDemora.setText("Ingrese demora valida");
             }
             listaItemPedidos.add(itemPedido);
             agregarPizza(itemPedido);
