@@ -286,6 +286,8 @@ public class ventanaDatosDePedido extends javax.swing.JFrame {
         tabla.setModel(modelo);
     }
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCerrar;
     public javax.swing.JButton jButtonImprimir;

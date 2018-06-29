@@ -8,6 +8,8 @@ import java.util.TimerTask;
 import java.util.Timer;
 import java.awt.Toolkit;
 import javax.swing.table.TableCellRenderer;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -41,7 +43,7 @@ public class GUIListaPedidos extends javax.swing.JFrame {
             @Override
             public void run() {
                 tabla.repaint();
-           }
+            }
         };
         Timer timer = new Timer();
         timer.schedule(task, 0, 15000);
@@ -151,7 +153,7 @@ public class GUIListaPedidos extends javax.swing.JFrame {
 //                    }
 //                }
 //                    }
-            
+
     }//GEN-LAST:event_jButtonAgregarPedidoActionclock
 
     private void clickBotonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickBotonLimpiarActionPerformed
@@ -192,14 +194,18 @@ public class GUIListaPedidos extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void inicializarTabla(){
-        modelo= new ModeloListaPedidos();
+
+    public void inicializarTabla() {
+        modelo = new ModeloListaPedidos();
         tabla.setModel(modelo);
-       
-        ResaltadorDePedidosVencidos resaltador = new ResaltadorDePedidosVencidos (modelo);
+
+        ResaltadorDePedidosVencidos resaltador = new ResaltadorDePedidosVencidos(modelo);
         tabla.setDefaultRenderer(String.class, resaltador);
         Toolkit.getDefaultToolkit().beep();
+
+        administradorVariedades aV = new administradorVariedades();
+        aV.obtener();
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -22,7 +22,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
     private List<ItemPedido> listaItemPedidos = new ArrayList<ItemPedido>();
     private int costoTotal;
     private ModeloPizzas modelo;
-
+    private List<Variedad> listado = new ArrayList<>();
     /**
      * Creates new form GUIPizzeria
      */
@@ -106,8 +106,6 @@ public class GUIPizzeria extends javax.swing.JFrame {
         });
 
         jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piedra", "Parrilla", "Molde" }));
-
-        jComboBoxVAriedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Muzzarella", "Jamon y morrones", "Fugazzeta", "Cuatro quesos", "Napolitana" }));
 
         jButtonOK.setText("OK");
         jButtonOK.addActionListener(new java.awt.event.ActionListener() {
@@ -250,29 +248,26 @@ public class GUIPizzeria extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(162, 162, 162)
-                                        .addComponent(jLabel8))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(130, 130, 130)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel)
-                                            .addComponent(jButtonOK))))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelCostoP)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(78, 78, 78)
-                                        .addComponent(jButton1))))
+                                .addGap(162, 162, 162)
+                                .addComponent(jLabel8))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelErrorCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(130, 130, 130)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel)
+                                    .addComponent(jButtonOK))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelCostoP)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(jButton1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelErrorCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -415,21 +410,10 @@ public class GUIPizzeria extends javax.swing.JFrame {
             pizza.setTipo(Tipo.MOLDE);
         }
 
-        if (jComboBoxVAriedad.getSelectedItem().equals("Muzzarella")) {
-            pizza.setVariedad(muzzarella);
-        }
-        if (jComboBoxVAriedad.getSelectedItem().equals("Jamon y morrones")) {
-            pizza.setVariedad(jamonYMorrones);
-        }
-        if (jComboBoxVAriedad.getSelectedItem().equals("Fugazzeta")) {
-            pizza.setVariedad(fugazzeta);
-        }
-        if (jComboBoxVAriedad.getSelectedItem().equals("Cuatro quesos")) {
-            pizza.setVariedad(cuatroQuesos);
-        }
-        if (jComboBoxVAriedad.getSelectedItem().equals("Napolitana")) {
-            pizza.setVariedad(napolitana);
-        }
+        Variedad variedadSeleccionada = listado.get(jComboBoxVAriedad.getSelectedIndex());
+        pizza.setVariedad(variedadSeleccionada);
+        
+
 
         try {
 
@@ -525,13 +509,6 @@ public class GUIPizzeria extends javax.swing.JFrame {
         });
     }
 
-    Variedad muzzarella = new Variedad("Muzzarella", 50);
-    Variedad jamonYMorrones = new Variedad("Jamon y morrones", 60);
-    Variedad fugazzeta = new Variedad("Fugazzeta", 40);
-    Variedad cuatroQuesos = new Variedad("Cuatro quesos", 70);
-    Variedad napolitana = new Variedad("Napolitana", 70);
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAgregar;
@@ -593,6 +570,11 @@ public class GUIPizzeria extends javax.swing.JFrame {
     public void inicializarTabla() {
         modelo = new ModeloPizzas();
         tabla.setModel(modelo);
+        administradorVariedades AV= new administradorVariedades();
+        listado=AV.obtener();
+        for (Variedad v:listado){
+            jComboBoxVAriedad.addItem(v.getNombre());
+        }
     }
 
     public void agregarPizza(ItemPedido itemPedido) {
