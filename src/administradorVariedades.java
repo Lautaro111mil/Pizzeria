@@ -24,5 +24,13 @@ public class administradorVariedades {
         }
         return listado;
     }
-
+    
+    public void borrarVariedad(Variedad variedad){
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(variedad);
+        session.getTransaction().commit();
+        session.close();
+    }
+    
 }

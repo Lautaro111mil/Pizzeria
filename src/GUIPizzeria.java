@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -106,6 +105,12 @@ public class GUIPizzeria extends javax.swing.JFrame {
         });
 
         jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piedra", "Parrilla", "Molde" }));
+
+        jComboBoxVAriedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxVAriedadActionPerformed(evt);
+            }
+        });
 
         jButtonOK.setText("OK");
         jButtonOK.addActionListener(new java.awt.event.ActionListener() {
@@ -472,7 +477,11 @@ public class GUIPizzeria extends javax.swing.JFrame {
             }
 
     }//GEN-LAST:event_jButtonAgregarActionPerformedClick
-    }
+
+    private void jComboBoxVAriedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxVAriedadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxVAriedadActionPerformed
+  
 
     /**
      * @param args the command line arguments
