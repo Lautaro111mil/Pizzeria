@@ -59,6 +59,12 @@ public class ABM extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxVAriedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxVAriedadActionPerformed(evt);
+            }
+        });
+
         jButtonEditar.setText("Editar");
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,11 +123,10 @@ public class ABM extends javax.swing.JFrame {
 
     private void jButtonAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirActionPerformed
         ventana.setVisible(true);
-        
     }//GEN-LAST:event_jButtonAñadirActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        ventana.setNombrePrecio();
+        ventana.setVariedad(listado.get(jComboBoxVAriedad.getSelectedIndex()));
         ventana.setVisible(true);
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
@@ -139,6 +144,10 @@ public class ABM extends javax.swing.JFrame {
       
        
     }//GEN-LAST:event_jButtonBorrarActionPerformed
+
+    private void jComboBoxVAriedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxVAriedadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxVAriedadActionPerformed
 
     /**
      * @param args the command line arguments

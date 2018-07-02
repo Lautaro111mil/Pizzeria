@@ -33,4 +33,14 @@ public class administradorVariedades {
         session.close();
     }
     
+    public void guardar (Variedad variedad){
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.merge(variedad);
+        session.getTransaction().commit();
+        session.close();    
+    }
+    
+    
+    
 }

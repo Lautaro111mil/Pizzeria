@@ -10,21 +10,28 @@
  */
 public class GuiAnadirEditar extends javax.swing.JFrame {
 
+    public Variedad variedadAtributo;
+
     /**
      * Creates new form GuiAnadirEditar
      */
     public GuiAnadirEditar() {
         initComponents();
-        
+
     }
-    
-      public void setNombrePrecio(){
-            ABM ventana =new ABM();
-            jTextFieldNombre.setText(ventana.jComboBoxVAriedad.getSelectedItem().toString());
-            double precio= ventana.listado.get(ventana.jComboBoxVAriedad.getSelectedIndex()).getPrecio();
-            String precioS= String.valueOf(precio);
-            jTextFieldPrecio.setText(precioS);
-        }
+
+    public void setVariedad(Variedad variedad) {
+        this.variedadAtributo = variedad;
+    }
+
+    public void setNombrePrecio() {
+        ABM ventana = new ABM();
+
+        jTextFieldNombre.setText(ventana.jComboBoxVAriedad.getSelectedItem().toString());
+        double precio = ventana.listado.get(ventana.jComboBoxVAriedad.getSelectedIndex()).getPrecio();
+        String precioS = String.valueOf(precio);
+        jTextFieldPrecio.setText(precioS);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,6 +55,11 @@ public class GuiAnadirEditar extends javax.swing.JFrame {
         jLabel2.setText("Precio");
 
         jButtonOk.setText("OK");
+        jButtonOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardar(evt);
+            }
+        });
 
         jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +110,21 @@ public class GuiAnadirEditar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
+    private void guardar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar
+        
+        if (this.variedadAtributo == null) {
+            this.variedadAtributo = new Variedad();
+        }
+        
+        this.variedadAtributo.setNombre(jTextFieldNombre.getText());
+        double precioD = Double.valueOf(jTextFieldPrecio.getText());
+        this.variedadAtributo.setPrecio(precioD);
+        
+        administradorVariedades admin = new administradorVariedades();
+        admin.guardar(this.variedadAtributo);
+        dispose();
+    }//GEN-LAST:event_guardar
+
     /**
      * @param args the command line arguments
      */
@@ -131,10 +158,7 @@ public class GuiAnadirEditar extends javax.swing.JFrame {
                 new GuiAnadirEditar().setVisible(true);
             }
         });
-        
-      
-        
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
