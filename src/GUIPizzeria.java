@@ -32,6 +32,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
         setTitle("Agregar Pedido");
         this.setLocationRelativeTo(null);
         jTextFieldObservacion.setLineWrap(true);
+        
     }
 
     /**
@@ -358,6 +359,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
                 Pedido pedido = new Pedido(jTextFieldNombre.getText(), Integer.valueOf(jTextFieldHora.getText()),
                         Integer.valueOf(jTextFieldMinuto.getText()), Integer.valueOf(jTextFieldDemora.getText().trim()), modelo.getPizzas());
                 Integer.valueOf(demoraIngresada);
+                pedido.calcularCostoTotal();
                 pantallaListado.agregarPedido(pedido);
 
             } catch (Exception e) {
@@ -367,6 +369,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
             String costoOtraVentana = String.valueOf(this.costoTotal);
             ventana.jLabelCosto.setText(costoOtraVentana);
+            
             dispose();
         }
 
@@ -478,6 +481,7 @@ public class GUIPizzeria extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonAgregarActionPerformedClick
 
+        }
     private void jComboBoxVAriedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxVAriedadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxVAriedadActionPerformed

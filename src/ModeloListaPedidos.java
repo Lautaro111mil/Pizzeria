@@ -76,7 +76,7 @@ public class ModeloListaPedidos implements TableModel {
             String demora = (String) String.valueOf(pedido.getMinutosDemora());
             valor = demora;
         } else if (columnIndex == 4) {
-            valor = (String) String.valueOf(pedido.calcularCostoTotal());
+            valor = (String) String.valueOf(pedido.getPrecioFinal());
         }
         return valor;
     }

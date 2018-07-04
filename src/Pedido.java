@@ -6,6 +6,12 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,15 +22,40 @@ import java.util.Objects;
  *
  * @author User
  */
+@Entity
+
 public class Pedido {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    public Pedido() {
+    }
+    
+    @Column
     private String nombreCliente;
+    
+    @Column
     private int horaPedido;
+    
+    @Column
     private int minutosPedido;
+    
+    @Column
     private int minutosDemora;
+    
+    @Transient
     private List<ItemPedido> itemsPedidos = new ArrayList();
+    
+    @Column
     private boolean fueEntregado;
+    
+    @Column
     private Date horaEntrega;
+    
+    @Column
+    private double precioFinal;
 
     public boolean getFueEntregado() {
         return fueEntregado;
@@ -136,12 +167,22 @@ public class Pedido {
     public Date getHoraEntrega() {
         return horaEntrega;
     }
+
+    public void setPrecioFinal(double precioFinal) {
+        this.precioFinal = precioFinal;
+    }
+
+    public double getPrecioFinal() {
+        return precioFinal;
+    }
+    
+    
   
-    public double calcularCostoTotal(){
+    public void calcularCostoTotal(){
         double costoTotal=0;
         for (ItemPedido item : itemsPedidos){
             costoTotal+=item.calcularCostoPizzasRepetidas();
     }
-        return costoTotal;
+        this.precioFinal=costoTotal;
     }
 }
