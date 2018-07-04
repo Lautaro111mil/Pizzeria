@@ -129,6 +129,8 @@ public class ModeloListaPedidos implements TableModel {
             if (unPedido.estaAtrasado(new Date())) {
                 posicionesAtrasadas.add(i);
                 pedidosABorrar.add(unPedido);
+                AdministradorPedidos AP = new AdministradorPedidos();
+                AP.borrarPedido(unPedido);
             }
         }
 

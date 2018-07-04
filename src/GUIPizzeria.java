@@ -360,6 +360,9 @@ public class GUIPizzeria extends javax.swing.JFrame {
                         Integer.valueOf(jTextFieldMinuto.getText()), Integer.valueOf(jTextFieldDemora.getText().trim()), modelo.getPizzas());
                 Integer.valueOf(demoraIngresada);
                 pedido.calcularCostoTotal();
+                
+                AdministradorPedidos AP=new AdministradorPedidos();
+                pedido = AP.guardar(pedido);
                 pantallaListado.agregarPedido(pedido);
 
             } catch (Exception e) {
@@ -398,14 +401,21 @@ public class GUIPizzeria extends javax.swing.JFrame {
         jLabelErrorNombre.setText("");
 
         Pizza pizza = new Pizza();
+        TamañoPizza tp = new TamañoPizza();
         if (jComboBoxTamaño.getSelectedItem().equals("Grande (8)")) {
-            pizza.setTamaño(8);
+            tp.setTamaño(8);
+            tp.setNombre("Grande");
+            tp.setPrecio(100);
         }
         if (jComboBoxTamaño.getSelectedItem().equals("Extra grande (10)")) {
-            pizza.setTamaño(10);
+            tp.setTamaño(10);
+            tp.setNombre("Extra grande");
+            tp.setPrecio(120);
         }
         if (jComboBoxTamaño.getSelectedItem().equals("Gigante (12)")) {
-            pizza.setTamaño(12);
+            tp.setTamaño(12);
+            tp.setNombre("Gigante");
+            tp.setPrecio(130);
         }
 
         if (jComboBoxTipo.getSelectedItem().equals("Piedra")) {

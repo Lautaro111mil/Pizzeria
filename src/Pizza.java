@@ -1,3 +1,10 @@
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,19 +16,16 @@
  * @author User
  */
 public class Pizza {
-
-    private int tamaño;
+    
+    private TamañoPizza tamaño;
     private Variedad variedad;
     private Tipo tipo;
 
-    public int getTamaño() {
+    public TamañoPizza getTamaño() {
         return tamaño;
     }
 
-    public void setTamaño(int tamaño) {
-        if (tamaño != 8 && tamaño != 10 && tamaño != 12) {
-            throw new Error("La pizza pueden ser de 8, 10 o 12 porciones");
-        }
+    public void setTamaño(TamañoPizza tamaño) {
         this.tamaño = tamaño;
     }
 
@@ -46,13 +50,13 @@ public class Pizza {
 
     public double calcularCosto() {
         double precioTamaño = 0;
-        if (tamaño == 8) {
+        if (tamaño.getTamaño() == 8) {
             precioTamaño = 100;
         }
-        if (tamaño == 10) {
+        if (tamaño.getTamaño() == 10) {
             precioTamaño = 120;
         }
-        if (tamaño == 12) {
+        if (tamaño.getTamaño() == 12) {
             precioTamaño = 130;
         }
         double precioTipo = 0;

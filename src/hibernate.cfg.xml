@@ -50,5 +50,6 @@ Contributor(s):
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="Variedad"/>
     <mapping class="Pedido"/>
+    <mapping class="TamañoPizza"/>
   </session-factory>
 </hibernate-configuration>

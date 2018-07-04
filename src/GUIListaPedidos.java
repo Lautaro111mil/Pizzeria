@@ -214,13 +214,18 @@ public class GUIListaPedidos extends javax.swing.JFrame {
     public void inicializarTabla() {
         modelo = new ModeloListaPedidos();
         tabla.setModel(modelo);
-
+        
+        
         ResaltadorDePedidosVencidos resaltador = new ResaltadorDePedidosVencidos(modelo);
         tabla.setDefaultRenderer(String.class, resaltador);
         Toolkit.getDefaultToolkit().beep();
 
-        administradorVariedades aV = new administradorVariedades();
-        aV.obtener();
+        AdministradorPedidos AP= new AdministradorPedidos();
+        List<Pedido> pedidos = AP.obtener();
+        for (Pedido P:pedidos){
+            modelo.agregarPedido(P);
+        }
+        
 
     }
 
